@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 *{
   margin: 0;
   padding: 0;
@@ -18,10 +19,14 @@ html, body{
 .pre_title{
   font-size: 1rem;
   text-transform: uppercase;
-
+  color: rgba(0, 0, 0, 0.5);
 }
 
+.tag{
+  color: hsla(25, 85%, 49%, 1);
+}
 
 .sectionTitle{
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 500;
 }

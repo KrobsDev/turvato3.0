@@ -7,10 +7,10 @@ import PageSection from '../components/PageSection'
 function Home () {
   return (
     <div>
-      <div className='w-full h-screen flex items-center justify-center flex-col relative'>
+      <div className='w-full h-screen overflow-hidden flex items-center justify-center flex-col relative'>
         <div className='absolute text-center top-48'>
           <div className='pre_title'>ui reimagined</div>
-          <h1 className='text-5xl py-4 font-medium'>Quality UI Kits</h1>
+          <h1 className='text-5xl py-2 font-medium'>Quality UI Kits</h1>
         </div>
         <div className='w-[1200px] h-[480px] absolute bottom-0 z-10'>
           <img src={laptop} alt='' />
@@ -26,9 +26,23 @@ function Home () {
       <PageSection>
         <div className='left'>
           <div className='pre_title'>Tailored templates</div>
-          <h2 className='sectionTitle'>
-            Amazing custom UI <br /> templates at your disposal
-          </h2>
+          <p className='sectionTitle text-dark-bg'>
+            Amazing <span className='text-orange-bg2'>custom</span> UI <br />{' '}
+            templates at your disposal
+          </p>
+          <p className='w-2/4 font-light'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
+            at ante elit ipsum a. Rhoncus malesuada sollicitudin vitae
+            adipiscing sed non.
+          </p>
+          <div className='flex gap-8 items-center'>
+            <div className='border border-black'>
+              <div className='flex'>
+                <div className='icon'></div>
+                
+              </div>
+            </div>
+          </div>
         </div>
         <div className='right'></div>
       </PageSection>
