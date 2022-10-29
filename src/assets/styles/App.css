@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* pre title style */
+.pre_title{
+  font-size: 1rem;
+  text-transform: uppercase;
+
+}
+
+
+.sectionTitle{
+  font-size: 2rem;
+}
