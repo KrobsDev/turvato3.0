@@ -7,7 +7,7 @@ import PageSection from '../components/PageSection'
 function Home () {
   return (
     <div>
-      <div className='w-full h-screen overflow-hidden flex items-center justify-center flex-col relative'>
+      <div className='w-full h-screen flex items-center justify-center flex-col relative'>
         <div className='absolute text-center top-48'>
           <div className='pre_title'>ui reimagined</div>
           <h1 className='text-5xl py-2 font-medium'>Quality UI Kits</h1>
@@ -36,10 +36,10 @@ function Home () {
             adipiscing sed non.
           </p>
           <div className='flex gap-8 items-center'>
-            <div className='border border-black'>
-              <div className='flex'>
+            <div className='border border-black '>
+              <div className='flex px-8 py-3'>
                 <div className='icon'></div>
-                
+                <p>Aestethic</p>
               </div>
             </div>
           </div>
