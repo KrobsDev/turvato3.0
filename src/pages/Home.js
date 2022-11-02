@@ -2,12 +2,16 @@ import React from 'react'
 import laptop from '../assets/images/laptop.png'
 import phone from '../assets/images/phone.png'
 import tablet from '../assets/images/tablet.png'
+import chip from '../assets/images/chip.svg'
 import PageSection from '../components/PageSection'
+import Plaque from '../components/Plaque'
+import { RiBrushLine, RiArtboard2Line, RiCodeFill } from 'react-icons/ri'
+import SectionContent from '../components/SectionContent'
 
 function Home () {
   return (
     <div>
-      <div className='w-full h-screen flex items-center justify-center flex-col relative'>
+      <div className='w-full h-screen overflow-hidden flex items-center justify-center flex-col relative'>
         <div className='absolute text-center top-48'>
           <div className='pre_title'>ui reimagined</div>
           <h1 className='text-5xl py-2 font-medium'>Quality UI Kits</h1>
@@ -24,27 +28,42 @@ function Home () {
       </div>
       {/* section 2 --> Tailored templates */}
       <PageSection>
-        <div className='left'>
-          <div className='pre_title'>Tailored templates</div>
-          <p className='sectionTitle text-dark-bg'>
-            Amazing <span className='text-orange-bg2'>custom</span> UI <br />{' '}
-            templates at your disposal
-          </p>
-          <p className='w-2/4 font-light'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
+        <div className='left w-full'>
+          <SectionContent
+            preTitle='Tailored templates'
+            header='Amazing custom templates at your disposal'
+            content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
             at ante elit ipsum a. Rhoncus malesuada sollicitudin vitae
-            adipiscing sed non.
-          </p>
-          <div className='flex gap-8 items-center'>
-            <div className='border border-black '>
-              <div className='flex px-8 py-3'>
-                <div className='icon'></div>
-                <p>Aestethic</p>
-              </div>
-            </div>
+            adipiscing sed non.'
+            colored='custom'
+          />
+
+          <div className='flex gap-4 items-center'>
+            <Plaque icon={<RiBrushLine size={24} />} text='Aesthetic' />
+            <Plaque icon={<RiArtboard2Line size={24} />} text='Simple' />
+            <Plaque icon={<RiCodeFill size={24} />} text='Flexible' />
           </div>
         </div>
-        <div className='right'></div>
+        {/* <div className='right w-full relative flex items-center justify-end'> */}
+        <div className='w-[900px] '>
+          <img
+            src={chip}
+            alt=''
+            className='absolute top-0 right-0 bottom-0 my-auto -z-10 object-cover w-[800px]'
+          />
+        </div>
+        <img src={phone} alt='' className='w-64 absolute right-40' />
+        {/* </div> */}
+      </PageSection>
+      {/* custom designs section */}
+      <PageSection>
+        <div className='left w-2/5 h-3/4'>
+          {/* <div className='border border-black h-full w-full'></div> */}
+          <img src={tablet} className='w-full h-full object-contain' alt='' />
+        </div>
+        <div className='right w-2/4'>
+          <div className='border border-black h-full w-full'></div>
+        </div>
       </PageSection>
     </div>
   )

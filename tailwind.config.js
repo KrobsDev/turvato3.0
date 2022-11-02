@@ -4,9 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'dark-bg': 'hsla(195, 100%, 15%, 1)',
-        'orange-bg': 'hsla(25, 85%, 49%, 1)',
-        'orange-bg2': '#E96D13'
+        'dark-blue': 'hsla(195, 100%, 15%, 1)',
+        'orange-bg': 'hsla(25, 85%, 49%, 100%)'
       }
     }
   },
