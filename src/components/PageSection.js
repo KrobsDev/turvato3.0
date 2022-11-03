@@ -1,9 +1,15 @@
 import React from 'react'
 
-function PageSection ({ children }) {
+function PageSection ({ children, flex = true, height }) {
   return (
-    <div className='h-screen relative overflow-hidden'>
-      <div className='w-4/5 h-full mx-auto flex items-center justify-between'>
+    <div
+      className={`${height ? height : 'h-screen '} relative overflow-hidden`}
+    >
+      <div
+        className={`w-4/5 h-full mx-auto flex items-center ${
+          flex ? 'justify-between' : 'justify-center'
+        }`}
+      >
         {children}
       </div>
     </div>

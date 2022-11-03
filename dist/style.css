@@ -563,12 +563,16 @@ video {
   position: relative;
 }
 
-.top-48 {
-  top: 12rem;
-}
-
 .bottom-0 {
   bottom: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-48 {
+  top: 12rem;
 }
 
 .-bottom-24 {
@@ -587,12 +591,24 @@ video {
   top: 0px;
 }
 
-.right-0 {
-  right: 0px;
-}
-
 .right-40 {
   right: 10rem;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.left-5 {
+  left: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .z-10 {
@@ -613,9 +629,34 @@ video {
   margin-bottom: 1rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 
 .flex {
@@ -626,6 +667,22 @@ video {
   height: 100%;
 }
 
+.h-\[40em\] {
+  height: 40em;
+}
+
+.h-4\/5 {
+  height: 80%;
+}
+
+.h-\[56px\] {
+  height: 56px;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
 .h-24 {
   height: 6rem;
 }
@@ -634,8 +691,17 @@ video {
   height: 100vh;
 }
 
+.h-\[50px\] {
+  height: 50px;
+}
+
 .h-\[480px\] {
   height: 480px;
+}
+
+.h-max {
+  height: -webkit-max-content;
+  height: max-content;
 }
 
 .h-3\/4 {
@@ -646,16 +712,28 @@ video {
   width: 100%;
 }
 
-.w-3\/4 {
-  width: 75%;
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[56px\] {
+  width: 56px;
 }
 
 .w-4\/5 {
   width: 80%;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-32 {
   width: 8rem;
+}
+
+.w-\[50px\] {
+  width: 50px;
 }
 
 .w-\[1200px\] {
@@ -706,6 +784,18 @@ video {
   justify-content: space-between;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-24 {
+  gap: 6rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .gap-12 {
   gap: 3rem;
 }
@@ -722,6 +812,10 @@ video {
   overflow: hidden;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -734,6 +828,15 @@ video {
   border-width: 1px;
 }
 
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
 .border-red-900 {
   --tw-border-opacity: 1;
   border-color: rgb(127 29 29 / var(--tw-border-opacity));
@@ -743,9 +846,12 @@ video {
   border-color: hsla(195, 100%, 15%, 1);
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+.bg-orange-bg {
+  background-color: hsla(25, 85%, 49%, 100%);
+}
+
+.bg-dark-blue {
+  background-color: hsla(195, 100%, 15%, 1);
 }
 
 .object-contain {
@@ -754,6 +860,16 @@ video {
 
 .object-cover {
   object-fit: cover;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .px-8 {
@@ -771,18 +887,21 @@ video {
   padding-right: 1rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.pt-20 {
+  padding-top: 5rem;
 }
 
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.pl-14 {
+  padding-left: 3.5rem;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-xl {
@@ -800,6 +919,11 @@ video {
   line-height: 1;
 }
 
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
 .font-light {
   font-weight: 300;
 }
@@ -812,13 +936,18 @@ video {
   line-height: 1.75rem;
 }
 
+.text-dark-blue {
+  color: hsla(195, 100%, 15%, 1);
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-dark-blue {
-  color: hsla(195, 100%, 15%, 1);
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-orange-bg {
@@ -827,6 +956,21 @@ video {
 
 .opacity-60 {
   opacity: 0.6;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 *{
@@ -845,9 +989,10 @@ html, body{
 /* pre title style */
 
 .pre_title{
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
+  opacity: 0.6;
+  /* color: rgba(0, 0, 0, 0.5); */
 }
 
 .tag{
@@ -857,4 +1002,11 @@ html, body{
 .sectionTitle{
   font-size: 2.5rem;
   font-weight: 500;
+}
+
+.newsletter {
+  background-image: url('../images/email.svg');
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+  background-size: 5%;
 }

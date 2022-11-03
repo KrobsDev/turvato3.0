@@ -18,9 +18,10 @@ html, body{
 
 /* pre title style */
 .pre_title{
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
+  opacity: 0.6;
+  /* color: rgba(0, 0, 0, 0.5); */
 }
 
 .tag{
@@ -30,4 +31,11 @@ html, body{
 .sectionTitle{
   font-size: 2.5rem;
   font-weight: 500;
+}
+
+.newsletter {
+  background-image: url('../images/email.svg');
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+  background-size: 5%;
 }

@@ -2,11 +2,16 @@ import React from 'react'
 import laptop from '../assets/images/laptop.png'
 import phone from '../assets/images/phone.png'
 import tablet from '../assets/images/tablet.png'
+import platforms from '../assets/images/platforms.svg'
 import chip from '../assets/images/chip.svg'
+import quote_left from '../assets/images/quote-left.svg'
+import quote_right from '../assets/images/quote-right.svg'
+import nextGen from '../assets/images/nextGen.svg'
 import PageSection from '../components/PageSection'
 import Plaque from '../components/Plaque'
 import { RiBrushLine, RiArtboard2Line, RiCodeFill } from 'react-icons/ri'
 import SectionContent from '../components/SectionContent'
+import Footer from '../components/Footer'
 
 function Home () {
   return (
@@ -31,11 +36,12 @@ function Home () {
         <div className='left w-full'>
           <SectionContent
             preTitle='Tailored templates'
-            header='Amazing custom templates at your disposal'
+            header='Amazing custom UI templates at your disposal'
             content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
             at ante elit ipsum a. Rhoncus malesuada sollicitudin vitae
             adipiscing sed non.'
             colored='custom'
+            // cButton="What's happening?"
           />
 
           <div className='flex gap-4 items-center'>
@@ -56,15 +62,93 @@ function Home () {
         {/* </div> */}
       </PageSection>
       {/* custom designs section */}
-      <PageSection>
-        <div className='left w-2/5 h-3/4'>
-          {/* <div className='border border-black h-full w-full'></div> */}
-          <img src={tablet} className='w-full h-full object-contain' alt='' />
-        </div>
-        <div className='right w-2/4'>
-          <div className='border border-black h-full w-full'></div>
-        </div>
-      </PageSection>
+      <div className='h-max bg-dark-blue text-white'>
+        <PageSection>
+          <div className='left w-2/5 h-3/4'>
+            <div className='h-full w-full'>
+              <img
+                src={tablet}
+                className='w-full h-full object-contain'
+                alt=''
+              />
+            </div>
+          </div>
+          <div className='right w-2/4'>
+            <SectionContent
+              preTitle='Custom Designs'
+              header='Contemporary Bespoke Designs'
+              content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
+            at ante elit ipsum a. Rhoncus malesuada sollicitudin vitae
+            adipiscing sed non.'
+              colored='Bespoke'
+              cButton="What's happening?"
+              twhite={true}
+            />
+          </div>
+        </PageSection>
+        <PageSection>
+          <div className='left w-2/4'>
+            <SectionContent
+              preTitle='cross platform'
+              header='We have templates for all platforms'
+              content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
+            at ante elit ipsum a. Rhoncus malesuada sollicitudin vitae
+            adipiscing sed non.'
+              colored='all platforms'
+              cButton="What's happening?"
+              twhite={true}
+            />
+          </div>
+          <div className='right w-2/4'>
+            <div className='h-full w-full'>
+              <img
+                src={platforms}
+                className='w-full h-full object-contain'
+                alt=''
+              />
+            </div>
+          </div>
+        </PageSection>
+      </div>
+      {/* big banner */}
+      <div className='relative'>
+        <PageSection flex={false}>
+          <p className='text-8xl text-center'>
+            We have templates for all platforms
+          </p>
+          {/* quotes */}
+          {/* <img src={quote_left} className='absolute top-0 left-5' alt='' />
+          <img src={quote_right} className='absolute bottom-0 right-5' alt='' /> */}
+        </PageSection>
+      </div>
+      <div className='bg-dark-blue text-white'>
+        <PageSection>
+          <div className='left w-2/4'>
+            <SectionContent
+              preTitle='future of interface design'
+              header='The next generation of user interface designs'
+              content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum ut
+            at ante elit ipsum a. Rhoncus malesuada sollicitudin vitae
+            adipiscing sed non.'
+              colored='next generation'
+              // cButton="What's happening?"
+              twhite={true}
+            />
+          </div>
+          <div className='right w-2/4'>
+            <div className='h-full w-full'>
+              <img
+                src={nextGen}
+                className='w-full h-full object-contain'
+                alt=''
+              />
+            </div>
+          </div>
+        </PageSection>
+      </div>
+
+      {/* footer */}
+      <Footer />
     </div>
   )
 }
