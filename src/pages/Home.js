@@ -6,6 +6,13 @@ import platforms from '../assets/images/platforms.svg'
 import chip from '../assets/images/chip.svg'
 import chip_clear from '../assets/images/chip_clear.svg'
 import nextGen from '../assets/images/nextGen.svg'
+import v1 from '../assets/images/Vector1.svg'
+import v2 from '../assets/images/Vector2.svg'
+import v3 from '../assets/images/Vector3.svg'
+import v4 from '../assets/images/Vector4.svg'
+import v5 from '../assets/images/Vector5.svg'
+import v6 from '../assets/images/Vector6.svg'
+import v7 from '../assets/images/Vector7.svg'
 import PageSection from '../components/PageSection'
 import Plaque from '../components/Plaque'
 import { RiBrushLine, RiArtboard2Line, RiCodeFill } from 'react-icons/ri'
@@ -15,20 +22,56 @@ import Footer from '../components/Footer'
 function Home () {
   return (
     <div>
-      <div className='w-full h-screen overflow-hidden flex items-center justify-center flex-col relative'>
-        <div className='absolute text-center top-48'>
-          <div className='pre_title'>ui reimagined</div>
-          <h1 className='text-5xl py-2 font-medium'>Quality UI Kits</h1>
+      <div className='mesh h-screen relative overflow-hidden bg-dark-blue'>
+        <div className='layer-2  w-full h-full relative z-50'>
+          <PageSection>
+            <div className='w-full h-screen overflow-hidden flex items-center justify-center flex-col relative'>
+              <div className='absolute text-center top-48'>
+                <div className='pre_title text-white opacity-40'>
+                  ui reimagined
+                </div>
+                <h1 className='text-5xl py-2 font-medium text-white'>
+                  Quality UI Kits
+                </h1>
+              </div>
+              <div className='w-[1200px] h-[480px] absolute bottom-0 z-10'>
+                <img src={laptop} alt='' />
+              </div>
+              <div className='w-[400px] h-[480px] absolute -bottom-24 left-0 overflow-hidden'>
+                <img src={tablet} alt='' />
+              </div>
+              <div className='w-[400px] h-[480px] absolute -bottom-24 right-0 overflow-hidden'>
+                <img src={phone} alt='' />
+              </div>
+            </div>
+          </PageSection>
         </div>
-        <div className='w-[1200px] h-[480px] absolute bottom-0 z-10'>
-          <img src={laptop} alt='' />
-        </div>
-        <div className='w-[400px] h-[480px] absolute -bottom-24 left-24 overflow-hidden'>
-          <img src={tablet} alt='' />
-        </div>
-        <div className='w-[400px] h-[480px] absolute -bottom-24 right-24 overflow-hidden'>
-          <img src={phone} alt='' />
-        </div>
+
+        <img
+          src={v6}
+          className='absolute -top-40 w-[900px] -left-24 overflow-hidden blur-3xl z-20'
+          alt=''
+        />
+        <img
+          src={v1}
+          className='absolute w-[500px] -left-44 -bottom-40 overflow-hidden blur-3xl z-10'
+          alt=''
+        />
+        <img
+          src={v7}
+          className='absolute -top-24 blur-3xl w-[750px] left-0 right-0 mx-auto overflow-hidden z-20'
+          alt=''
+        />
+        <img
+          src={v3}
+          className='absolute -top-24 overflow-hidden w-[900px] blur-3xl z-10 -right-40'
+          alt=''
+        />
+        <img
+          src={v4}
+          className='absolute -right-40 w-[600px] -bottom-40 blur-3xl overflow-hidden z-20'
+          alt=''
+        />
       </div>
       {/* section 2 --> Tailored templates */}
       <PageSection>
