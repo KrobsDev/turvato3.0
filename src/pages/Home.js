@@ -4,8 +4,7 @@ import phone from '../assets/images/phone.png'
 import tablet from '../assets/images/tablet.png'
 import platforms from '../assets/images/platforms.svg'
 import chip from '../assets/images/chip.svg'
-import quote_left from '../assets/images/quote-left.svg'
-import quote_right from '../assets/images/quote-right.svg'
+import chip_clear from '../assets/images/chip_clear.svg'
 import nextGen from '../assets/images/nextGen.svg'
 import PageSection from '../components/PageSection'
 import Plaque from '../components/Plaque'
@@ -45,9 +44,18 @@ function Home () {
           />
 
           <div className='flex gap-4 items-center'>
-            <Plaque icon={<RiBrushLine size={24} />} text='Aesthetic' />
-            <Plaque icon={<RiArtboard2Line size={24} />} text='Simple' />
-            <Plaque icon={<RiCodeFill size={24} />} text='Flexible' />
+            <Plaque
+              icon={<RiBrushLine size={24} color={'#E96D13'} />}
+              text='Aesthetic'
+            />
+            <Plaque
+              icon={<RiArtboard2Line size={24} color={'#E96D13'} />}
+              text='Simple'
+            />
+            <Plaque
+              icon={<RiCodeFill size={24} color={'#E96D13'} />}
+              text='Flexible'
+            />
           </div>
         </div>
         {/* <div className='right w-full relative flex items-center justify-end'> */}
@@ -62,7 +70,7 @@ function Home () {
         {/* </div> */}
       </PageSection>
       {/* custom designs section */}
-      <div className='h-max bg-dark-blue text-white'>
+      <div className='h-max bg-dark-blue text-white relative'>
         <PageSection>
           <div className='left w-2/5 h-3/4'>
             <div className='h-full w-full'>
@@ -85,6 +93,11 @@ function Home () {
               twhite={true}
             />
           </div>
+          <img
+            src={chip_clear}
+            className='absolute -right-44 w-[700px]'
+            alt=''
+          />
         </PageSection>
         <PageSection>
           <div className='left w-2/4'>
@@ -108,6 +121,11 @@ function Home () {
               />
             </div>
           </div>
+          <img
+            src={chip_clear}
+            className='absolute -left-40 top-0 w-[500px] rotate-[25deg]'
+            alt=''
+          />
         </PageSection>
       </div>
       {/* big banner */}

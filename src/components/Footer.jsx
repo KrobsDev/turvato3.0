@@ -84,7 +84,7 @@ function Footer () {
       </PageSection>
       <div className='border-t border-gray-300 h-16 flex items-center justify-center'>
         <div className='w-4/5 mx-auto flex gap-6 text-sm opacity-60'>
-          <span> 2022 Turvato Inc</span>
+          <span> &#169;2022 Turvato Inc</span>
           <span className='opacity-40'>|</span>
           <span>Support</span>
           <span className='opacity-40'>|</span>

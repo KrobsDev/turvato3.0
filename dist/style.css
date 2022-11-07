@@ -595,8 +595,12 @@ video {
   right: 10rem;
 }
 
-.left-0 {
-  left: 0px;
+.-right-44 {
+  right: -11rem;
+}
+
+.-left-40 {
+  left: -10rem;
 }
 
 .left-5 {
@@ -762,6 +766,20 @@ video {
 
 .w-2\/4 {
   width: 50%;
+}
+
+.w-\[700px\] {
+  width: 700px;
+}
+
+.w-\[500px\] {
+  width: 500px;
+}
+
+.rotate-\[25deg\] {
+  --tw-rotate: 25deg;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .flex-col {
