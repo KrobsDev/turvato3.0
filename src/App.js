@@ -5,10 +5,11 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
+import Footer from './components/Footer'
 
 function App () {
   return (
-    <div className='h-full w-full'>
+    <div className='h-full w-full overflow-hidden'>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -16,6 +17,8 @@ function App () {
         <Route path='/contact' element={<Contact />} />
         <Route path='/signin' element={<Login />} />
       </Routes>
+      {/* footer
+      <Footer /> */}
     </div>
   )
 }

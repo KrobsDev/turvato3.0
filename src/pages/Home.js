@@ -207,9 +207,6 @@ function Home () {
           </div>
         </PageSection>
       </div>
-
-      {/* footer */}
-      <Footer />
     </div>
   )
 }

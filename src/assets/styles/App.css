@@ -7,9 +7,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --dark-blue: hsla(195, 100%, 15%, 1);
+  --orange-bg: hsla(25, 85%, 49%, 100%);
 }
 
-html, body{
+html, body, #root{
   position: relative;
   width: 100%;
   height: 100%;
@@ -41,3 +43,59 @@ html, body{
   background-size: 5%;
 }
 
+.slanted_div{
+  background: linear-gradient(to right, hsla(195, 100%, 15%, 1) 58%, rgba(0, 56, 77, 0.284)), url('../images/leaf.png') no-repeat;
+  background-size: contain;
+  background-position: right center;
+}
+
+.slanted_div::after{
+  content: '';
+  position: fixed;
+  bottom: -150px;
+  width: 100%;
+  height:400px;
+  background-color: white;
+  display: block;
+  transform: skew(0, 6deg);
+  /* transform-origin: 0% 100%; */
+  /* transform-origin: 100% 0; */
+}
+
+.sign input[type="email"],  .sign input[type="password"]{
+  padding: 20px 65px;
+  background-color: rgba(238, 238, 238, 0.305);
+  border-radius: 5px;
+  /* outline: 1px solid transparent; */
+}
+
+.sign input[type="email"]{
+  background-image: url("../images/icons/mdi-light_email.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+}
+
+.sign input[type="password"]{
+  background-image: url("../images/icons/bytesize_lock.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+}
+
+.sign input[type="button"], .google{
+  padding: 15px 20px;
+  border-radius: 5px;
+  width: 100%;
+  
+}
+
+.google{
+  background-image: url("../images/icons/flat-color-icons_google.svg");
+  background-repeat: no-repeat;
+  background-position: left 22% center;
+}
+
+@media screen and (min-width: 1533px) {
+  .slanted_div::after{
+    bottom: -100px;
+  }
+}
