@@ -647,6 +647,10 @@ video {
   z-index: -10;
 }
 
+.z-\[99999\] {
+  z-index: 99999;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1044,6 +1048,7 @@ html, body{
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* pre title style */
@@ -1071,5 +1076,3 @@ html, body{
   background-size: 5%;
 }
 
-.mesh{
-}
