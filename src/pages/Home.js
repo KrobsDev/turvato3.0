@@ -7,10 +7,8 @@ import chip from '../assets/images/chip.svg'
 import chip_clear from '../assets/images/chip_clear.svg'
 import nextGen from '../assets/images/nextGen.svg'
 import v1 from '../assets/images/Vector1.svg'
-import v2 from '../assets/images/Vector2.svg'
 import v3 from '../assets/images/Vector3.svg'
 import v4 from '../assets/images/Vector4.svg'
-import v5 from '../assets/images/Vector5.svg'
 import v6 from '../assets/images/Vector6.svg'
 import v7 from '../assets/images/Vector7.svg'
 import PageSection from '../components/PageSection'
@@ -207,6 +205,9 @@ function Home () {
           </div>
         </PageSection>
       </div>
+
+      {/* footer */}
+      <Footer />
     </div>
   )
 }

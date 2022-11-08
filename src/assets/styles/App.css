@@ -11,7 +11,7 @@
   --orange-bg: hsla(25, 85%, 49%, 100%);
 }
 
-html, body, #root{
+html, body{
   position: relative;
   width: 100%;
   height: 100%;
@@ -44,6 +44,7 @@ html, body, #root{
 }
 
 .slanted_div{
+  position: relative;
   background: linear-gradient(to right, hsla(195, 100%, 15%, 1) 58%, rgba(0, 56, 77, 0.284)), url('../images/leaf.png') no-repeat;
   background-size: contain;
   background-position: right center;
@@ -62,11 +63,17 @@ html, body, #root{
   /* transform-origin: 100% 0; */
 }
 
-.sign input[type="email"],  .sign input[type="password"]{
-  padding: 20px 65px;
+.sign input[type="text"], .sign input[type="email"],  .sign input[type="password"]{
+  padding: 20px 20px 20px 65px;
   background-color: rgba(238, 238, 238, 0.305);
   border-radius: 5px;
   /* outline: 1px solid transparent; */
+}
+
+.sign input[type="text"]{
+  background-image: url("../images/icons/fluent_rename-20-regular.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
 }
 
 .sign input[type="email"]{

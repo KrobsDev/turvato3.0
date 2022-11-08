@@ -17,7 +17,7 @@ function SectionContent ({
         {preTitle}
       </div>
       <p
-        className={`sectionTitle w-3/4 ${
+        className={`sectionTitle w-4/5 ${
           twhite ? 'text-white' : 'text-dark-blue'
         }`}
       >
@@ -25,7 +25,9 @@ function SectionContent ({
           ? replace(
               header,
               colored,
-              <span key={0} className='text-orange-bg'>{colored}</span>
+              <span key={0} className='text-orange-bg'>
+                {colored}
+              </span>
             )
           : ''}
       </p>

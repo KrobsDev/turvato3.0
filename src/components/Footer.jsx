@@ -82,17 +82,19 @@ function Footer () {
           <img src={girl} className='mt-20' alt='' />
         </div>
       </PageSection>
-      <div className='border-t border-gray-300 h-16 flex items-center justify-center'>
-        <div className='w-4/5 mx-auto flex gap-6 text-sm opacity-60'>
-          <span> &#169;2022 Turvato Inc</span>
-          <span className='opacity-40'>|</span>
-          <span>Support</span>
-          <span className='opacity-40'>|</span>
-          <span>Privacy Policy</span>
-          <span className='opacity-40'>|</span>
-          <span>Terms of Use</span>
-          <span className='opacity-40'>|</span>
-          <span>Cookie Policy</span>
+      <div>
+        <div className='border-t border-gray-300 h-16 flex items-center justify-center'>
+          <div className='w-3/4 mx-auto flex gap-6 text-sm opacity-60'>
+            <span> &#169;2022 Turvato Inc</span>
+            <span className='opacity-40'>|</span>
+            <span>Support</span>
+            <span className='opacity-40'>|</span>
+            <span>Privacy Policy</span>
+            <span className='opacity-40'>|</span>
+            <span>Terms of Use</span>
+            <span className='opacity-40'>|</span>
+            <span>Cookie Policy</span>
+          </div>
         </div>
       </div>
     </div>

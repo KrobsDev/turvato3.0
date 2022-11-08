@@ -6,7 +6,7 @@ function PageSection ({ children, flex = true, height }) {
       className={`${height ? height : 'h-screen '} relative overflow-hidden`}
     >
       <div
-        className={`w-4/5 h-full mx-auto flex items-center ${
+        className={`w-3/4 h-full mx-auto flex items-center ${
           flex ? 'justify-between' : 'justify-center'
         }`}
       >
