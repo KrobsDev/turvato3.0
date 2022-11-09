@@ -11,13 +11,13 @@ function SignUp () {
             <p className='slogan py-3 text-white font-semibold text-5xl 2xl:text-6xl'>
               Join <span className='text-orange-bg'>Turvato</span>
             </p>
-            <p className='leading-7 text-white opacity-70 font-light'>
+            <p className='leading-7 text-white opacity-70 font-light text-sm'>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere
               modi nesciunt nihil vitae voluptate dolorem quo. Provident aliquid
               nobis sequi?
             </p>
           </div>
-          <div className='right w-[450px] h-max absolute right-0 bottom-0 top-14 2xl:top-32 my-auto rounded-lg shadow-2xl px-6 z-50 bg-white mt-20'>
+          <div className='right w-[450px] h-max absolute right-0 bottom-0 top-10 2xl:top-32 my-auto rounded-lg shadow-2xl px-6 z-50 bg-white mt-20'>
             <div className='py-8 h-full  flex flex-col items-center justify-center gap-8'>
               <div className='w-full'>
                 {/* sign up with google */}

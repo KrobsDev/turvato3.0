@@ -5,7 +5,6 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
-import Footer from './components/Footer'
 import SignUp from './pages/Register'
 
 function App () {
