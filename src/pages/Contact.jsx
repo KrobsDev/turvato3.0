@@ -21,7 +21,7 @@ function Contact (props) {
           }`}
           onClick={() => handleActive(index)}
         >
-          {element}
+          {element}œœœœœœœœ
         </button>
       ))}
     </div>
