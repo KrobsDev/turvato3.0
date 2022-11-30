@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import * as api from '../server/utils/Users'
 
 function SignUp () {
+  const [fname, setFname] = useState('')
+  const [lname, setLname] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  // function to add a new user to the database
+  const addNewUser = async () => {
+    api.createUser(fname, lname, email, password)
+  }
+
+  // onChange handler
+  const handleInputChange = e => {
+    const { id, value } = e.target
+    if (id === 'fname') setFname(value)
+    if (id === 'lname') setLname(value)
+    if (id === 'email') setEmail(value)
+    if (id === 'password') setPassword(value)
+  }
+
+  // validate fields
+  const validateInput = e => {
+    // regex
+    const fnameRegex = ''
+  }
+
   return (
     <div className='h-screen w-full '>
       <div className='h-4/5 w-full slanted_div flex'>
@@ -42,15 +68,40 @@ function SignUp () {
                 </p> */}
               </div>
               <form className='sign flex flex-col w-full gap-4'>
-                <input type='text' placeholder='First Name' />
-                <input type='text' placeholder='Last Name' />
-                <input type='email' placeholder='Email' />
-                <input type='password' placeholder='Password' />
+                <input
+                  type='text'
+                  id='fname'
+                  placeholder='First Name'
+                  value={fname}
+                  onChange={e => handleInputChange(e)}
+                />
+                <input
+                  type='text'
+                  id='lname'
+                  placeholder='Last Name'
+                  value={lname}
+                  onChange={e => handleInputChange(e)}
+                />
+                <input
+                  type='email'
+                  id='email'
+                  placeholder='Email'
+                  value={email}
+                  onChange={e => handleInputChange(e)}
+                />
+                <input
+                  type='password'
+                  placeholder='Password'
+                  value={password}
+                  id='password'
+                  onChange={e => handleInputChange(e)}
+                />
 
                 <input
                   type='button'
-                  className='shadow-lg bg-orange-bg text-white font-bold text-xl'
+                  className='shadow-lg cursor-pointer bg-orange-bg text-white font-bold text-xl'
                   value='Sign in'
+                  onClick={() => addNewUser()}
                 />
                 <span className='text-center'>
                   Already have an account?{' '}

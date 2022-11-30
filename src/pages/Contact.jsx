@@ -1,29 +1,22 @@
 import React, { useState } from 'react'
-
+import * as api from '../server/utils/Users'
 function Contact (props) {
-  const [isActive, setisActive] = useState()
-
-  const handleActive = index => {
-    setisActive(index)
+  // fetch all users from the api
+  const handleClick = () => {
+    // console.log('hello')
+    api.getUsers()
   }
-
-  // button list
-  const buttons = ['Hello', 'Welcome', 'Stop']
 
   return (
     <div>
-      {/* series of buttons */}
-      {buttons.map((element, index) => (
-        <button
-          key={index}
-          className={`one bg-gray-400 px-8 py-2 m-8 ${
-            index === isActive ? 'bg-black text-white' : ''
-          }`}
-          onClick={() => handleActive(index)}
-        >
-          {element}
-        </button>
-      ))}
+      {/* create a button to perform the get request */}
+      <button
+        className='bg-green-400 py-3 px-8 absolute top-44 rounded-lg cursor-pointer'
+        onClick={() => handleClick()}
+      >
+        {' '}
+        Click me
+      </button>
     </div>
   )
 }
