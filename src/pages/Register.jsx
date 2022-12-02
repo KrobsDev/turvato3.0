@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import * as api from '../server/utils/Users'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function SignUp () {
   const [fname, setFname] = useState('')
@@ -8,10 +10,52 @@ function SignUp () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  // function to add a new user to the database
+  // sweet alert component
+  const sweetAlert = withReactContent(Swal)
+
+  const navigate = useNavigate()
+
   const addNewUser = async () => {
-    api.createUser(fname, lname, email, password)
+    // validate before submit
+    if (validateForm()) {
+      await api
+        .createUser(fname, lname, email, password)
+        .then(function (response) {
+          if (
+            response === 'User already exists' ||
+            response === 'Fields cannot be empty'
+          ) {
+            sweetAlert
+              .fire({
+                title: 'Sign up failed',
+                // text: 'The email you entered already exists',
+                timer: 2000,
+                toast: true,
+                icon: 'warning',
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+              })
+            // return false
+          } else {
+            sweetAlert
+              .fire({
+                title: 'Account created successfully',
+                timer: 2000,
+                icon: 'success',
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                navigate('/signin')
+              })
+          }
+        })
+    }
   }
+
+  // function to add a new user to the database
 
   // onChange handler
   const handleInputChange = e => {
@@ -22,10 +66,50 @@ function SignUp () {
     if (id === 'password') setPassword(value)
   }
 
-  // validate fields
-  const validateInput = e => {
-    // regex
-    const fnameRegex = ''
+  // validate input
+  const validateInput = (regex, id, value, error) => {
+    if (regex.test(value)) {
+      // show error message
+      document.getElementById(id).style.border = '1px solid green'
+      document.getElementById(error).textContent = ''
+      return true
+    } else {
+      document.getElementById(id).style.border = '1px solid red'
+      document.getElementById(error).textContent = 'Input is invalid'
+      return false
+    }
+  }
+
+  // validate entire form
+  const validateForm = () => {
+    if (
+      validateInput(
+        /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+        'fname',
+        fname,
+        'ferror'
+      ) &&
+      validateInput(
+        /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+        'lname',
+        lname,
+        'lerror'
+      ) &&
+      validateInput(
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+        'email',
+        email,
+        'eerror'
+      ) &&
+      validateInput(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+        'password',
+        password,
+        'perror'
+      )
+    ) {
+      return true
+    }
   }
 
   return (
@@ -47,7 +131,7 @@ function SignUp () {
             <div className='py-8 h-full  flex flex-col items-center justify-center gap-8'>
               <div className='w-full'>
                 {/* sign up with google */}
-                <input
+                {/* <input
                   type='button'
                   className='google border border-dark-blue mb-5'
                   value='Sign in with Google'
@@ -57,50 +141,53 @@ function SignUp () {
                   <hr className='w-full' />
                   <span className='px-4 font-light'>or</span>
                   <hr className='w-full' />
-                </div>
-
-                {/* <h6 className='text-xl text-dark-blue text-center'>
-                  Welcome back
-                </h6>
-                <p className='opacity-60 text-center py-2 text-sm'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Optio, at.
-                </p> */}
+                </div> */}
               </div>
               <form className='sign flex flex-col w-full gap-4'>
-                <input
-                  type='text'
-                  id='fname'
-                  placeholder='First Name'
-                  value={fname}
-                  onChange={e => handleInputChange(e)}
-                />
-                <input
-                  type='text'
-                  id='lname'
-                  placeholder='Last Name'
-                  value={lname}
-                  onChange={e => handleInputChange(e)}
-                />
-                <input
-                  type='email'
-                  id='email'
-                  placeholder='Email'
-                  value={email}
-                  onChange={e => handleInputChange(e)}
-                />
-                <input
-                  type='password'
-                  placeholder='Password'
-                  value={password}
-                  id='password'
-                  onChange={e => handleInputChange(e)}
-                />
-
+                <div className='w-full'>
+                  <input
+                    type='text'
+                    id='fname'
+                    placeholder='First Name'
+                    value={fname}
+                    onChange={e => handleInputChange(e)}
+                  />
+                  <p className='error' id='ferror'></p>
+                </div>
+                <div className=''>
+                  <input
+                    type='text'
+                    id='lname'
+                    placeholder='Last Name'
+                    value={lname}
+                    onChange={e => handleInputChange(e)}
+                  />
+                  <p className='error' id='lerror'></p>
+                </div>
+                <div className=''>
+                  <input
+                    type='email'
+                    id='email'
+                    placeholder='Email'
+                    value={email}
+                    onChange={e => handleInputChange(e)}
+                  />
+                  <p className='error' id='eerror'></p>
+                </div>
+                <div className=''>
+                  <input
+                    type='password'
+                    placeholder='Password'
+                    value={password}
+                    id='password'
+                    onChange={e => handleInputChange(e)}
+                  />
+                  <p className='error' id='perror'></p>
+                </div>
                 <input
                   type='button'
                   className='shadow-lg cursor-pointer bg-orange-bg text-white font-bold text-xl'
-                  value='Sign in'
+                  value='Sign up'
                   onClick={() => addNewUser()}
                 />
                 <span className='text-center'>

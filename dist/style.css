@@ -555,6 +555,40 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .absolute {
   position: absolute;
 }
@@ -754,10 +788,6 @@ video {
 
 .h-3\/4 {
   height: 75%;
-}
-
-.h-\[500px\] {
-  height: 500px;
 }
 
 .w-full {
@@ -1179,6 +1209,10 @@ html, body{
   /* transform-origin: 100% 0; */
 }
 
+input{
+  width: 100%;
+}
+
 .sign input[type="text"], .sign input[type="email"],  .sign input[type="password"]{
   padding: 20px 20px 20px 65px;
   background-color: rgba(238, 238, 238, 0.305);
@@ -1215,6 +1249,23 @@ html, body{
   background-repeat: no-repeat;
   background-position: left 22% center;
 }
+
+.error{
+  color: rgb(209, 36, 36);
+  padding: 0;
+  margin: 0;
+}
+
+/* toast */
+
+#custom-target{
+  position: relative;
+  /* background-color: red; */
+}
+
+/* .position-absolute{
+  position: absolute !important;
+} */
 
 @media screen and (min-width: 1533px) {
   .slanted_div::after{
