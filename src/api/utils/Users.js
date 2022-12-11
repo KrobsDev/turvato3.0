@@ -9,13 +9,19 @@ import * as urls from '../config.js'
 // function to create a new user
 export async function createUser (fname, lname, email, password) {
   try {
-    const response = await axios.post(urls.URL_USERS + 'addUser.php', {
-      user_fname: fname,
-      user_lname: lname,
-      user_email: email,
-      user_password: password
-    })
-    return response.data['message']
+    const response = await axios
+      .post(urls.URL_USERS + 'addUser.php', {
+        user_fname: fname,
+        user_lname: lname,
+        user_email: email,
+        user_password: password
+      })
+      .then(function () {
+        return response.data['message']
+      })
+      .catch(function (error) {
+        return false
+      })
   } catch (error) {
     console.log(error)
     return false

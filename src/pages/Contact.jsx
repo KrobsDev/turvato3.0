@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as api from '../server/utils/Users'
+import * as api from '../api/utils/Users'
 function Contact (props) {
   // fetch all users from the api
   const handleClick = () => {

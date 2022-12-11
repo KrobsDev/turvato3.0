@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AuthContext from '../context/AuthProvider'
 import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import * as api from '../api/utils/Users'
 
 function Login () {
+  const { setAuth } = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -81,7 +83,7 @@ function Login () {
             .fire({
               title: 'Login successful',
               heightAuto: false,
-              toast: true,
+              // toast: true,
               timer: 2000,
               icon: 'success',
               showConfirmButton: false

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import * as api from '../server/utils/Users'
+import * as api from '../api/utils/Users'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -51,6 +51,9 @@ function SignUp () {
                 navigate('/signin')
               })
           }
+        })
+        .catch(error => {
+          console.log(error)
         })
     }
   }
