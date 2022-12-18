@@ -10,11 +10,11 @@ function Login () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  // sweetalert instance
-  const sweetAlert = withReactContent(Swal)
-
   // navigator
   const navigate = useNavigate()
+
+  // sweet alert
+  const sweetAlert = withReactContent(Swal)
 
   // handle input field change
   const handleInputChange = e => {
@@ -64,37 +64,111 @@ function Login () {
   // login function
   const login = async () => {
     if (validateForm())
-      await api.userLogin(email, password).then(function (response) {
-        if (response === 'User not found') {
-          // navigate to the homepage
+      await api
+        .userLogin(email, password)
+        .then(function (response) {
+          // console.log(response.status)
+          if (
+            response.status === 200 &&
+            response.data.message === 'Login successful'
+          ) {
+            // fire sweet alert success alert
+            sweetAlert
+              .fire({
+                title: 'Login successful',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                // Navigate()
+              })
+            console.log(response.data.message)
+          } else if (
+            response.status === 400 &&
+            response.data.message === 'Login failed'
+          ) {
+            // fire sweet alert failed alert
+            sweetAlert
+              .fire({
+                title: 'Login failed',
+                text: 'Invalid username or password',
+                icon: 'warning',
+                timer: 2000,
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                // Navigate()
+              })
+            console.log(response.data.message)
+          } else if (
+            response.data.status === 404 &&
+            response.data.message === 'User not found'
+          ) {
+            // fire sweet alert failed alert
+            sweetAlert
+              .fire({
+                title: 'User not found',
+                text: 'The credentials you entered do not exist',
+                icon: 'warning',
+                timer: 2000,
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                // Navigate()
+              })
+            console.log(response.data.message)
+          } else {
+            sweetAlert
+              .fire({
+                title: 'Servere Error',
+                text: "Sorry we couldn't process the request at this time",
+                icon: 'warning',
+                timer: 2000,
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                // Navigate()
+              })
+            console.log('Server error')
+          }
+        })
+        .catch(function (error) {
+          // fire sweet alert for server error
           sweetAlert
             .fire({
-              title: 'Login failed',
-              // text: 'The email you entered already exists',
-              timer: 2000,
+              title: 'Server Error',
+              text: "Sorry we couldn't process the request at this time",
               icon: 'warning',
-              showConfirmButton: false
-            })
-            .then(() => {
-              sweetAlert.close()
-            })
-        } else {
-          sweetAlert
-            .fire({
-              title: 'Login successful',
-              heightAuto: false,
-              // toast: true,
               timer: 2000,
-              icon: 'success',
               showConfirmButton: false
-              // position: 'top'
             })
             .then(() => {
               sweetAlert.close()
-              // navigate('/')
+              // Navigate()
             })
-        }
-      })
+          console.log('Server error')
+        })
+
+    // .catch(error => {
+    //   // console.log(error)
+
+    //   // sweetAlert
+    //   //   .fire({
+    //   //     title: 'Account created successfully',
+    //   //     timer: 2000,
+    //   //     icon: 'success',
+    //   //     showConfirmButton: false
+    //   //   })
+    //   //   .then(() => {
+    //   //     sweetAlert.close()
+    //   //     navigate('/signin')
+    //   //   })
+    // })
   }
 
   return (

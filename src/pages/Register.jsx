@@ -21,38 +21,73 @@ function SignUp () {
       await api
         .createUser(fname, lname, email, password)
         .then(function (response) {
-          if (
-            response === 'User already exists' ||
-            response === 'Fields cannot be empty'
-          ) {
+          console.log(response.data.message)
+          if (response.data.message === 'User already exists') {
             sweetAlert
               .fire({
-                title: 'Sign up failed',
-                // text: 'The email you entered already exists',
-                timer: 2000,
-                toast: true,
+                title: 'Email already exists',
+                text: 'The email you entered already exists, kindly use another email',
                 icon: 'warning',
+                timer: 2000,
                 showConfirmButton: false
               })
               .then(() => {
                 sweetAlert.close()
+                // Navigate()
               })
-            // return false
-          } else {
+          } else if (response.data.message === 'User not created') {
+            sweetAlert
+              .fire({
+                title: 'Account not created',
+                text: 'Sorry we could not create your account at this time. Try again later',
+                icon: 'warning',
+                timer: 2000,
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                // Navigate()
+              })
+          } else if (response.data.message === 'User created') {
             sweetAlert
               .fire({
                 title: 'Account created successfully',
-                timer: 2000,
                 icon: 'success',
+                timer: 2000,
                 showConfirmButton: false
               })
               .then(() => {
                 sweetAlert.close()
                 navigate('/signin')
               })
+          } else {
+            sweetAlert
+              .fire({
+                title: 'Server Error',
+                text: "Sorry we couldn't process the request at this time",
+                icon: 'warning',
+                timer: 2000,
+                showConfirmButton: false
+              })
+              .then(() => {
+                sweetAlert.close()
+                // Navigate()
+              })
           }
         })
         .catch(error => {
+          sweetAlert
+            .fire({
+              title: 'Server Error',
+              text: "Sorry we couldn't process the request at this time",
+              icon: 'warning',
+              timer: 2000,
+              showConfirmButton: false
+            })
+            .then(() => {
+              sweetAlert.close()
+              // Navigate()
+            })
           console.log(error)
         })
     }

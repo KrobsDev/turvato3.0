@@ -8,43 +8,41 @@ import * as urls from '../config.js'
 
 // function to create a new user
 export async function createUser (fname, lname, email, password) {
-  try {
-    const response = await axios
-      .post(urls.URL_USERS + 'addUser.php', {
-        user_fname: fname,
-        user_lname: lname,
-        user_email: email,
-        user_password: password
-      })
-      .then(function () {
-        return response.data['message']
-      })
-      .catch(function (error) {
-        return false
-      })
-  } catch (error) {
-    console.log(error)
-    return false
-  }
+  const response = await axios
+    .post(urls.URL_ADD_USERS, {
+      user_fname: fname,
+      user_lname: lname,
+      user_email: email,
+      user_password: password
+    })
+    .then(response => {
+      return response
+    })
+    .catch(error => {
+      return error
+    })
+  return response
 }
 
 // function to get all users
 export async function getUsers () {
-  await axios.get(urls.URL_USERS + 'getUsers.php').then(response => {
+  await axios.get(urls.URL_GET_USERS).then(response => {
     console.log(response.data)
   })
 }
 
 // user login
 export async function userLogin (email, password) {
-  try {
-    const response = await axios.post(urls.URL_USERS + 'login.php', {
+  const response = await axios
+    .post(urls.URL_LOGIN, {
       user_email: email,
       user_password: password
     })
-    return response.data
-  } catch (error) {
-    console.log(error)
-    return false
-  }
+    .then(function (response) {
+      return response
+    })
+    .catch(function (error) {
+      return error
+    })
+  return response
 }
