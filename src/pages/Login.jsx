@@ -124,8 +124,8 @@ function Login () {
           } else {
             sweetAlert
               .fire({
-                title: 'Servere Error',
-                text: "Sorry we couldn't process the request at this time",
+                title: 'User not found',
+                text: 'The credentials you entered do not exist',
                 icon: 'warning',
                 timer: 2000,
                 showConfirmButton: false
@@ -134,7 +134,7 @@ function Login () {
                 sweetAlert.close()
                 // Navigate()
               })
-            console.log('Server error')
+            console.log(response.data.message)
           }
         })
         .catch(function (error) {
