@@ -110,42 +110,6 @@ function Home () {
               />
             )
           })}
-
-          {/*<Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          /> */}
         </div>
       </section>
 
@@ -162,63 +126,21 @@ function Home () {
         </div>
 
         {/* product grid */}
-        <div className='grid grid-cols-4 gap-5 h-screen'>
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
+          {products.map((product, index) => {
+            return product.product_cat_id === 2 ? (
+              <Product
+                key={index}
+                image={leaf}
+                cat={product.product_cat}
+                title={product.product_name}
+                pricing={product.product_price}
+                downloads='87,000'
+              />
+            ) : (
+              ''
+            )
+          })}
         </div>
       </section>
 
@@ -235,63 +157,22 @@ function Home () {
         </div>
 
         {/* product grid */}
-        <div className='grid grid-cols-4 gap-5 h-screen'>
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
-          <Product
-            image=''
-            type='website template'
-            title='Real Estate Site with payment configured'
-            pricing='Free'
-            downloads='87,000'
-          />
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
+          {products.map((product, index) => {
+            // showing premium templates
+            return product.product_type_id === 2 ? (
+              <Product
+                key={index}
+                image={leaf}
+                cat={product.product_cat}
+                title={product.product_name}
+                pricing={product.product_price}
+                downloads='87,000'
+              />
+            ) : (
+              ''
+            )
+          })}
         </div>
       </section>
 

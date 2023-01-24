@@ -15,7 +15,9 @@ function Product (props) {
         {/* pricing tag */}
         <div className='absolute bg-white shadow-sm flex items-center justify-center px-4 py-1 top-5 right-5 rounded-full'>
           <span className='text-xs'>
-            {props.pricing === 0 || !props.pricing ? 'Free' : props.pricing}
+            {props.pricing === 0 || !props.pricing
+              ? 'Free'
+              : '$' + props.pricing}
           </span>
         </div>
       </div>
