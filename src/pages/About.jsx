@@ -19,7 +19,7 @@ import Footer from '../components/Footer'
 
 function About () {
   return (
-    <div>
+    <div className='w-full h-full'>
       <div className='mesh h-screen relative overflow-hidden bg-dark-blue'>
         <div className='layer-2  w-full h-full relative z-50'>
           <PageSection>

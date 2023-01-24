@@ -13,11 +13,10 @@
 
 html, body{
   position: relative;
-  width: 100%;
-  height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+
 
 /* pre title style */
 .pre_title{
@@ -130,4 +129,29 @@ input{
   .slanted_div::after{
     bottom: -100px;
   }
+}
+
+
+.bg_gradient{
+  background: linear-gradient(103.49deg, rgba(0, 57, 77, 0.94) 0%, #12B8A4 100.53%);
+}
+
+.leaf_bg{
+  background: url('../images/leaf_big_bg.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.g_text{
+  background: linear-gradient(to bottom, hsla(25, 85%, 49%, 1) 55%, hsla(0, 0%, 100%, 1));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.search_box{
+   
+}
+
+.search_box::placeholder{
+  
 }

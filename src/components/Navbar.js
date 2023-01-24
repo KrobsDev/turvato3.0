@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom'
 function Navbar () {
   return (
     <div className=' w-full h-24 absolute z-[99999]'>
-      <div className=' w-3/4 h-full mx-auto flex items-center justify-between relative'>
-        <div className='logo text-white text-xl font-bold'>Turvato</div>
+      <div className=' w-full h-full px-[10%] text-white mx-auto flex items-center justify-between relative'>
+        <div className='logo text-xl font-bold'>Turvato</div>
         {/* nav links */}
-        <ul className='flex gap-12 text-white text-sm font-light'>
+        <ul className='flex gap-12  text-sm font-light'>
           <li className='links'>
             <Link to={`/`}>Home</Link>
+          </li>
+          <li className='links'>
+            <Link to={`/`}>Shop</Link>
           </li>
           <li>
             <Link to={`/about`}>About</Link>
@@ -17,9 +20,12 @@ function Navbar () {
           <li>
             <Link to={`/contact`}>Contact Us</Link>
           </li>
+          <li className='links'>
+            <Link to={`/`}>Pricing</Link>
+          </li>
         </ul>
         <Link to={`/signin`}>
-          <button className='border border-white text-white px-8 py-2 rounded-sm'>
+          <button className='bg-orange-bg rounded-md text-white px-8 py-2 '>
             Sign In
           </button>
         </Link>
