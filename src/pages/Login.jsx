@@ -6,6 +6,7 @@ import withReactContent from 'sweetalert2-react-content'
 import * as api from '../api/utils/Users'
 
 function Login () {
+  // reference to the use context hook created in the context file
   const { setAuth } = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -67,7 +68,6 @@ function Login () {
       await api
         .userLogin(email, password)
         .then(function (response) {
-          // console.log(response.status)
           if (
             response.status === 200 &&
             response.data.message === 'Login successful'
@@ -82,13 +82,16 @@ function Login () {
               })
               .then(() => {
                 sweetAlert.close()
-                // Navigate()
+                // check user role and navigate accordingly
+                if (response.data.user['user_role'] === 1) {
+                  // navigate to admin
+                  navigate('/admin/')
+                } else {
+                  // navigate to regular user
+                  navigate('/')
+                }
               })
-            console.log(response.data.message)
-          } else if (
-            response.status === 400 &&
-            response.data.message === 'Login failed'
-          ) {
+          } else if (response.data.message === 'Login failed') {
             // fire sweet alert failed alert
             sweetAlert
               .fire({
@@ -100,13 +103,8 @@ function Login () {
               })
               .then(() => {
                 sweetAlert.close()
-                // Navigate()
               })
-            console.log(response.data.message)
-          } else if (
-            response.data.status === 404 &&
-            response.data.message === 'User not found'
-          ) {
+          } else if (response.data.message === 'User not found') {
             // fire sweet alert failed alert
             sweetAlert
               .fire({
@@ -118,9 +116,7 @@ function Login () {
               })
               .then(() => {
                 sweetAlert.close()
-                // Navigate()
               })
-            console.log(response.data.message)
           } else {
             sweetAlert
               .fire({
@@ -132,9 +128,7 @@ function Login () {
               })
               .then(() => {
                 sweetAlert.close()
-                // Navigate()
               })
-            console.log(response.data.message)
           }
         })
         .catch(function (error) {
@@ -149,26 +143,8 @@ function Login () {
             })
             .then(() => {
               sweetAlert.close()
-              // Navigate()
             })
-          console.log('Server error')
         })
-
-    // .catch(error => {
-    //   // console.log(error)
-
-    //   // sweetAlert
-    //   //   .fire({
-    //   //     title: 'Account created successfully',
-    //   //     timer: 2000,
-    //   //     icon: 'success',
-    //   //     showConfirmButton: false
-    //   //   })
-    //   //   .then(() => {
-    //   //     sweetAlert.close()
-    //   //     navigate('/signin')
-    //   //   })
-    // })
   }
 
   return (
