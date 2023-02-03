@@ -5,7 +5,7 @@ import { useCookies } from 'react-cookie'
 
 function Navbar () {
   // get the cookie from the browser and store it in the auth context
-  const [cookies, setCookies, removeCookies] = useCookies(['auth-token'])
+  const [cookies, setCookies, removeCookies] = useCookies(['auth_token'])
   // call the auth context to get the auth tokens
   const { setAuth } = useContext(AuthContext)
   const { auth } = useContext(AuthContext)
@@ -13,10 +13,12 @@ function Navbar () {
   // setAuth to the cookie
   useEffect(() => {
     setAuth({ token: cookies['auth_token'] })
-    return () => {}
+    return () => {
+      // cleanup function
+    }
   }, [cookies, setAuth])
 
-  console.log(auth.token)
+  // console.log(auth.token)
 
   // logout function
   const logout = () => {
