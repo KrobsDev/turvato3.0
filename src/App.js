@@ -7,19 +7,25 @@ import Contact from './pages/Contact'
 import Login from './pages/Login'
 import SignUp from './pages/Register'
 import Index from './pages/admin/Index'
+import { AuthProvider } from './context/AuthProvider'
+import { CookiesProvider } from 'react-cookie'
 
 function App () {
   return (
     <div className='h-full w-full overflow-hidden'>
-      <Navbar></Navbar>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/signin' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/admin/' element={<Index />} />
-      </Routes>
+      <CookiesProvider>
+        <AuthProvider>
+          <Navbar></Navbar>
+          <Routes>
+            <Route path='/admin/' element={<Index />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/signin' element={<Login />} />
+            <Route path='/signup' element={<SignUp />} />
+          </Routes>
+        </AuthProvider>
+      </CookiesProvider>
       {/* footer
       <Footer /> */}
     </div>

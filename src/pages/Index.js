@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 import { getProducts } from '../api/utils/Products'
 import { all } from 'axios'
 
-function Home () {
+function Index () {
   // state to hold products
   const [products, setProducts] = useState([])
 
@@ -182,4 +182,4 @@ function Home () {
   )
 }
 
-export default Home
+export default Index

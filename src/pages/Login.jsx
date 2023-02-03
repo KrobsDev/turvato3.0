@@ -4,12 +4,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import * as api from '../api/utils/Users'
+import { useCookies } from 'react-cookie'
 
 function Login () {
   // reference to the use context hook created in the context file
+  // the auth provider should be provided at the base of the app (App.js)
+  // raise the context to the useContext hook
   const { setAuth } = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [cookies, setCookie] = useCookies(['auth_token'])
 
   // navigator
   const navigate = useNavigate()
@@ -72,6 +76,20 @@ function Login () {
             response.status === 200 &&
             response.data.message === 'Login successful'
           ) {
+            // set token
+            const token = response.data.jwt
+
+            // set the auth
+            setAuth({
+              // user_id: response.data.user_id,
+              // user_role: response.data.user_role,
+              token: token
+            })
+
+            // create and set cookie to store the web token
+            setCookie('auth_token', token, { path: '/' })
+            console.log(cookies)
+
             // fire sweet alert success alert
             sweetAlert
               .fire({
@@ -82,13 +100,14 @@ function Login () {
               })
               .then(() => {
                 sweetAlert.close()
+
                 // check user role and navigate accordingly
-                if (response.data.user['user_role'] === 1) {
+                if (response.data.user_role === 1) {
                   // navigate to admin
-                  navigate('/admin/')
+                  // navigate('/admin/')
                 } else {
                   // navigate to regular user
-                  navigate('/')
+                  // navigate('/')
                 }
               })
           } else if (response.data.message === 'Login failed') {
