@@ -81,8 +81,6 @@ function Login () {
 
             // set the auth
             setAuth({
-              // user_id: response.data.user_id,
-              // user_role: response.data.user_role,
               token: token
             })
 
@@ -104,10 +102,10 @@ function Login () {
                 // check user role and navigate accordingly
                 if (response.data.user_role === 1) {
                   // navigate to admin
-                  // navigate('/admin/')
+                  navigate('/admin')
                 } else {
                   // navigate to regular user
-                  // navigate('/')
+                  navigate('/')
                 }
               })
           } else if (response.data.message === 'Login failed') {

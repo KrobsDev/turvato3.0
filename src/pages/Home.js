@@ -6,9 +6,8 @@ import { BsArrowRight } from 'react-icons/bs'
 import Product from '../components/Product'
 import Footer from '../components/Footer'
 import { getProducts } from '../api/utils/Products'
-import { all } from 'axios'
 
-function Index () {
+function Home () {
   // state to hold products
   const [products, setProducts] = useState([])
 
@@ -21,7 +20,7 @@ function Index () {
     // setstate
     setProducts(allProducts)
     //
-    console.log(allProducts)
+    // console.log(allProducts)
   }
 
   useEffect(() => {
@@ -102,6 +101,7 @@ function Index () {
             return (
               <Product
                 key={index}
+                id={element.product_id}
                 image={leaf}
                 cat={element.product_cat}
                 title={element.product_name}
@@ -182,4 +182,4 @@ function Index () {
   )
 }
 
-export default Index
+export default Home

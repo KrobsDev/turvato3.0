@@ -6,7 +6,11 @@ function Index () {
   const { auth } = useContext(AuthContext)
   return (
     <div>
-      Welcome to the admin page {auth.user_id + ' and ' + auth.user_role}
+      {/* content */}
+      <div className='admin_right border border-black float-right'>
+        {' '}
+        hekko
+      </div>
     </div>
   )
 }

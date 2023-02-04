@@ -1,9 +1,12 @@
 import React from 'react'
 import { AiOutlineDownload } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 function Product (props) {
   return (
     <div className='w-full h-[350px] rounded-md bg-white shadow-xl'>
+      {/* hidden field for the product id */}
+      <input type='hidden' value={props.id} />
       {/* image part */}
       <div className='w-full h-2/3 rounded-tl-md rounded-tr-md relative'>
         <img
@@ -28,7 +31,9 @@ function Product (props) {
         <p className='uppercase opacity-40 font-light text-xs'>{props.cat}</p>
 
         {/* text */}
-        <p className='font-light'>{props.title}</p>
+        <Link to={'/'} className='font-light'>
+          {props.title}
+        </Link>
 
         {/* downloads */}
         <div className='flex items-center gap-2'>
