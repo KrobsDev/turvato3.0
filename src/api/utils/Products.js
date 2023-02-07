@@ -11,8 +11,16 @@ import * as urls from '../config.js'
 
 // function to get all products
 export async function getProducts () {
-  const response = await axios.get(urls.URL_GET_PRODUCTS)
-//   .then(response => console.log(response.data))
+  const response = await axios.get(urls.URL_GET_PRODUCTS).then(response => {
+    // console.log(response.data.length)
+    if (response.data.length === 0) {
+      return []
+    } else {
+      // console.log(response.data)
+      return response
+    }
+  })
+  //   .then(response => console.log(response.data))
 
   return response
 }

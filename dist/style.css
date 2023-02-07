@@ -695,6 +695,10 @@ video {
   margin-bottom: auto;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .mt-16 {
   margin-top: 4rem;
 }
@@ -723,8 +727,16 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .flex {
   display: flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -882,10 +894,6 @@ video {
   width: 450px;
 }
 
-.w-\[82\%\] {
-  width: 82%;
-}
-
 .rotate-\[25deg\] {
   --tw-rotate: 25deg;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -988,14 +996,14 @@ video {
   border-top-width: 1px;
 }
 
-.border-red-900 {
-  --tw-border-opacity: 1;
-  border-color: rgb(127 29 29 / var(--tw-border-opacity));
-}
-
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-red-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity));
 }
 
 .border-gray-300 {
@@ -1054,6 +1062,16 @@ video {
   padding: 1rem;
 }
 
+.px-\[2\%\] {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-14 {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
@@ -1109,11 +1127,6 @@ video {
   padding-right: 1.5rem;
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 .pt-20 {
   padding-top: 5rem;
 }
@@ -1124,6 +1137,10 @@ video {
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
@@ -1421,11 +1438,11 @@ input{
 }
 
 .admin_links a{
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .admin_right{
-  /* max-width: 85%; */
+  max-width: 85%;
   width: calc(100% - 15%);
   height: 100vh;
 }
@@ -1434,6 +1451,23 @@ input{
   .admin_right{
     width: calc(100% - 12%);
   }
+}
+
+.prod_table{
+  border: 1px solid red;
+  height: 500px;
+}
+
+.prod_table tr{
+  /* border: 1px solid; */
+}
+
+.prod_table tr:nth-child(even){
+  background-color: rgb(236, 236, 236);
+}
+
+.prod_table td, th{
+  padding: 15px 8px;
 }
 
 .placeholder\:text-sm::-webkit-input-placeholder {

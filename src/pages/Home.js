@@ -20,7 +20,7 @@ function Home () {
     // setstate
     setProducts(allProducts)
     //
-    // console.log(allProducts)
+    // console.log(products)
   }
 
   useEffect(() => {
@@ -97,19 +97,21 @@ function Home () {
 
         {/* product grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
-          {products.map((element, index) => {
-            return (
-              <Product
-                key={index}
-                id={element.product_id}
-                image={leaf}
-                cat={element.product_cat}
-                title={element.product_name}
-                pricing={element.product_price}
-                downloads='87,000'
-              />
-            )
-          })}
+          {products.length > 0
+            ? products.map((element, index) => {
+                return (
+                  <Product
+                    key={index}
+                    id={element.product_id}
+                    image={leaf}
+                    cat={element.product_cat}
+                    title={element.product_name}
+                    pricing={element.product_price}
+                    downloads='87,000'
+                  />
+                )
+              })
+            : null}
         </div>
       </section>
 
@@ -127,7 +129,7 @@ function Home () {
 
         {/* product grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
-          {products.map((product, index) => {
+          {/* {products.map((product, index) => {
             return product.product_cat_id === 2 ? (
               <Product
                 key={index}
@@ -140,7 +142,7 @@ function Home () {
             ) : (
               ''
             )
-          })}
+          })} */}
         </div>
       </section>
 
@@ -158,7 +160,7 @@ function Home () {
 
         {/* product grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
-          {products.map((product, index) => {
+          {/* {products.map((product, index) => {
             // showing premium templates
             return product.product_type_id === 2 ? (
               <Product
@@ -172,7 +174,7 @@ function Home () {
             ) : (
               ''
             )
-          })}
+          })} */}
         </div>
       </section>
 

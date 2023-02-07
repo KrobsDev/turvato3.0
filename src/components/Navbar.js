@@ -6,10 +6,9 @@ import { useLocation } from 'react-router-dom'
 
 function Navbar () {
   // get the cookie from the browser and store it in the auth context
-  const [cookies, setCookies, removeCookies] = useCookies(['auth_token'])
+  const [cookies, , removeCookies] = useCookies(['auth_token'])
   // call the auth context to get the auth tokens
-  const { setAuth } = useContext(AuthContext)
-  const { auth } = useContext(AuthContext)
+  const { auth, setAuth } = useContext(AuthContext)
 
   const { pathname } = useLocation()
 
@@ -21,10 +20,7 @@ function Navbar () {
   // setAuth to the cookie
   useEffect(() => {
     setAuth({ token: cookies['auth_token'] })
-    // console.log(auth.token)
   }, [auth.token, cookies, setAuth])
-
-  // console.log(auth.token)
 
   // logout function
   const logout = () => {
@@ -54,7 +50,7 @@ function Navbar () {
               <Link to={`/contact`}>Contact Us</Link>
             </li>
             <li className='links'>
-              <Link to={`/`}>Pricing</Link>
+              <Link to={`/pricing`}>Pricing</Link>
             </li>
           </ul>
           {auth.token ? (
