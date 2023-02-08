@@ -129,20 +129,22 @@ function Home () {
 
         {/* product grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
-          {/* {products.map((product, index) => {
-            return product.product_cat_id === 2 ? (
-              <Product
-                key={index}
-                image={leaf}
-                cat={product.product_cat}
-                title={product.product_name}
-                pricing={product.product_price}
-                downloads='87,000'
-              />
-            ) : (
-              ''
-            )
-          })} */}
+          {products.length > 0
+            ? products.map((product, index) => {
+                return product.product_cat === 'Mobile UI Kit' ? (
+                  <Product
+                    key={index}
+                    image={leaf}
+                    cat={product.product_cat}
+                    title={product.product_name}
+                    pricing={product.product_price}
+                    downloads='87,000'
+                  />
+                ) : (
+                  ''
+                )
+              })
+            : null}
         </div>
       </section>
 
@@ -160,21 +162,23 @@ function Home () {
 
         {/* product grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
-          {/* {products.map((product, index) => {
-            // showing premium templates
-            return product.product_type_id === 2 ? (
-              <Product
-                key={index}
-                image={leaf}
-                cat={product.product_cat}
-                title={product.product_name}
-                pricing={product.product_price}
-                downloads='87,000'
-              />
-            ) : (
-              ''
-            )
-          })} */}
+          {products.length > 0
+            ? products.map((product, index) => {
+                // showing premium templates
+                return product.product_type === 'Premium' ? (
+                  <Product
+                    key={index}
+                    image={leaf}
+                    cat={product.product_cat}
+                    title={product.product_name}
+                    pricing={product.product_price}
+                    downloads='87,000'
+                  />
+                ) : (
+                  ''
+                )
+              })
+            : null}
         </div>
       </section>
 

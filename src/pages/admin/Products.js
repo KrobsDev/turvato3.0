@@ -1,22 +1,33 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import AdminRight from '../../components/AdminRight'
 import { Link } from 'react-router-dom'
 import { getProducts } from '../../api/utils/Products'
+import { MdEdit, MdDelete } from 'react-icons/md'
+import Pagination from '../../components/Pagination'
+
+let PageSize = 8
 
 function Products () {
   // products list
   const [products, setProducts] = useState([])
 
+  // pagination page state
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize
+    const lastPageIndex = firstPageIndex + PageSize
+    return products.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage, products])
+
   //   let shouldShow = useRef(true)
   //   call fetch function in useEffect
-  // useEffect(() => {
-  //   getProducts().then(function (response) {
-  //     setProducts(response.data)
-  //   })
-  //   // console.log(products)
-  // }, [])
-
-  //   console.log(products)
+  useEffect(() => {
+    getProducts().then(function (response) {
+      setProducts(response.data)
+    })
+    // console.log(products)
+  }, [])
 
   //   build pagination logic
 
@@ -49,7 +60,7 @@ function Products () {
             </thead>
 
             <tbody>
-              {products.map((product, index) => {
+              {currentTableData.map((product, index) => {
                 return (
                   <tr key={index}>
                     <td>{product.product_id}</td>
@@ -59,8 +70,12 @@ function Products () {
                     <td>{product.product_price}</td>
                     <td>{product.product_type}</td>
                     <td className='flex gap-4'>
-                      <Link>Edit</Link>
-                      <Link>Delete</Link>
+                      <Link>
+                        <MdEdit />
+                      </Link>
+                      <Link>
+                        <MdDelete />
+                      </Link>
                     </td>
                   </tr>
                 )
@@ -70,10 +85,13 @@ function Products () {
         </div>
 
         {/* pagination buttons */}
-        <div className='flex gap-4'>
-          <Link id='next'>Next</Link>
-          <Link id='prev'>Prev</Link>
-        </div>
+        <Pagination
+          className='pagination-bar'
+          currentPage={currentPage}
+          totalCount={products.length}
+          pageSize={PageSize}
+          onPageChange={page => setCurrentPage(page)}
+        />
 
         {/*  */}
       </AdminRight>

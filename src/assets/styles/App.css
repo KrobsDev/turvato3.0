@@ -173,8 +173,9 @@ input{
 }
 
 .prod_table{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 500px;
+  /* overflow: scroll; */
 }
 
 .prod_table tr{
