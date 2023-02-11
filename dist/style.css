@@ -631,6 +631,14 @@ video {
   right: 1.25rem;
 }
 
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+.top-14 {
+  top: 3.5rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -691,6 +699,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -740,6 +752,10 @@ video {
   height: 75%;
 }
 
+.h-\[500px\] {
+  height: 500px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -762,6 +778,10 @@ video {
 
 .w-32 {
   width: 8rem;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-\[50px\] {
@@ -810,6 +830,10 @@ video {
 
 .w-\[700px\] {
   width: 700px;
+}
+
+.w-\[450px\] {
+  width: 450px;
 }
 
 .rotate-\[25deg\] {
@@ -862,6 +886,10 @@ video {
   gap: 1rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -876,6 +904,10 @@ video {
 
 .rounded-sm {
   border-radius: 0.125rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .border {
@@ -906,6 +938,11 @@ video {
 
 .bg-dark-blue {
   background-color: hsla(195, 100%, 15%, 1);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .object-contain {
@@ -941,6 +978,16 @@ video {
   padding-right: 1rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pt-20 {
   padding-top: 5rem;
 }
@@ -951,6 +998,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-4xl {
@@ -990,6 +1041,10 @@ video {
   font-weight: 500;
 }
 
+.font-semibold {
+  font-weight: 600;
+}
+
 .leading-7 {
   line-height: 1.75rem;
 }
@@ -1020,9 +1075,29 @@ video {
   opacity: 0.4;
 }
 
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1076,6 +1151,13 @@ html, body, #root{
   background-size: 5%;
 }
 
+.slanted_div{
+  position: relative;
+  background: linear-gradient(to right, hsla(195, 100%, 15%, 1) 58%, rgba(0, 56, 77, 0.284)), url('../images/leaf.png') no-repeat;
+  background-size: contain;
+  background-position: right center;
+}
+
 .slanted_div::after{
   content: '';
   position: fixed;
@@ -1090,4 +1172,66 @@ html, body, #root{
   /* transform-origin: 100% 0; */
 }
 
+.sign input[type="text"], .sign input[type="email"],  .sign input[type="password"]{
+  padding: 20px 20px 20px 65px;
+  background-color: rgba(238, 238, 238, 0.305);
+  border-radius: 5px;
+  /* outline: 1px solid transparent; */
+}
 
+.sign input[type="text"]{
+  background-image: url("../images/icons/fluent_rename-20-regular.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+}
+
+.sign input[type="email"]{
+  background-image: url("../images/icons/mdi-light_email.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+}
+
+.sign input[type="password"]{
+  background-image: url("../images/icons/bytesize_lock.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+}
+
+.sign input[type="button"], .google{
+  padding: 15px 20px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.google{
+  background-image: url("../images/icons/flat-color-icons_google.svg");
+  background-repeat: no-repeat;
+  background-position: left 22% center;
+}
+
+@media screen and (min-width: 1533px) {
+  .slanted_div::after{
+    bottom: -100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:top-24 {
+    top: 6rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:top-52 {
+    top: 13rem;
+  }
+
+  .\32xl\:top-32 {
+    top: 8rem;
+  }
+
+  .\32xl\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
