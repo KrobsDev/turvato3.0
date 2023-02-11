@@ -6,12 +6,13 @@ import Contact from './pages/Contact'
 import Login from './pages/Login'
 import SignUp from './pages/Register'
 import Index from './pages/admin/Index'
-import Products from './pages/admin/Products'
+import Products from './pages/admin/Products/Products'
 import { AuthProvider } from './context/AuthProvider'
 import { CookiesProvider } from 'react-cookie'
 import ProductDetails from './pages/ProductDetails'
 import AdminLayout from './layouts/AdminLayout'
 import NavLayout from './layouts/NavLayout'
+import EditProduct from './pages/admin/Products/EditProduct'
 
 function App () {
   return (
@@ -21,7 +22,10 @@ function App () {
           <Routes>
             <Route path='/admin' element={<AdminLayout />}>
               <Route index={true} element={<Index />} />
-              <Route path='products' element={<Products />} />
+              <Route path='products/'>
+                <Route index={true} element={<Products />} />
+                <Route path='edit/:id' element={<EditProduct />} />
+              </Route>
             </Route>
             <Route path='/' element={<NavLayout />}>
               <Route index={true} element={<Home />} />

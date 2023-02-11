@@ -27,7 +27,7 @@ export async function createUser (fname, lname, email, password) {
 // function to get all users
 export async function getUsers () {
   await axios.get(urls.URL_GET_USERS).then(response => {
-    console.log(response.data)
+    return response
   })
 }
 
@@ -46,4 +46,3 @@ export async function userLogin (email, password) {
     })
   return response
 }
-

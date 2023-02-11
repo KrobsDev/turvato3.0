@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import AdminRight from '../../components/AdminRight'
+import AdminRight from '../../../components/AdminRight'
 import { Link } from 'react-router-dom'
-import { getProducts } from '../../api/utils/Products'
+import { getProducts } from '../../../api/utils/Products'
 import { MdEdit, MdDelete } from 'react-icons/md'
-import Pagination from '../../components/Pagination'
+import Pagination from '../../../components/Pagination'
 
 let PageSize = 8
 
@@ -14,12 +14,6 @@ function Products () {
   // pagination page state
   const [currentPage, setCurrentPage] = useState(1)
 
-  const currentTableData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize
-    const lastPageIndex = firstPageIndex + PageSize
-    return products.slice(firstPageIndex, lastPageIndex)
-  }, [currentPage, products])
-
   //   let shouldShow = useRef(true)
   //   call fetch function in useEffect
   useEffect(() => {
@@ -29,7 +23,22 @@ function Products () {
     // console.log(products)
   }, [])
 
-  //   build pagination logic
+  // sort the table data
+  const sortedData = products.sort((a, b) => {
+    if (a.product_id < b.product_id) {
+      return -1
+    }
+    if (a.product_id > b.product_id) {
+      return 1
+    }
+    return 0
+  })
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize
+    const lastPageIndex = firstPageIndex + PageSize
+    return sortedData.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage, sortedData])
 
   return (
     <div>
@@ -60,9 +69,9 @@ function Products () {
             </thead>
 
             <tbody>
-              {currentTableData.map((product, index) => {
+              {currentTableData.map(product => {
                 return (
-                  <tr key={index}>
+                  <tr key={product.product_id}>
                     <td>{product.product_id}</td>
                     <td>{product.product_image}</td>
                     <td>{product.product_name}</td>
@@ -70,7 +79,7 @@ function Products () {
                     <td>{product.product_price}</td>
                     <td>{product.product_type}</td>
                     <td className='flex gap-4'>
-                      <Link>
+                      <Link to={`edit/${product.product_id}`}>
                         <MdEdit />
                       </Link>
                       <Link>
