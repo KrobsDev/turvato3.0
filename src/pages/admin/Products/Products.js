@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 import {
   getProducts,
   getAllCategories,
-  getAllTypes
+  getAllTypes,
+  addProduct
 } from '../../../api/utils/Products'
 import { MdEdit, MdDelete, MdClose } from 'react-icons/md'
 import Pagination from '../../../components/Pagination'
 import Modal from '../../../components/Modal'
+import { formToJSON } from 'axios'
+import Swal from 'sweetalert2'
 
 let PageSize = 8
 
@@ -63,6 +66,30 @@ function Products () {
 
   const handleSubmit = e => {
     e.preventDefault()
+
+    // get form data
+    const form = e.target
+
+    const formData = new FormData(form)
+
+    const formJSON = formToJSON(formData)
+
+    // console.log(formJSON)
+
+    // add product function
+    addProduct(formJSON)
+      .then(response => {
+        // sweet alert
+        Swal.fire({
+          icon: response.data.status === 1 ? 'success' : 'warning',
+          text: response.data.message
+        }).then(() => {
+          // clear form data
+        })
+      })
+      .catch(error => {
+        console.log('error')
+      })
   }
 
   const currentTableData = useMemo(() => {

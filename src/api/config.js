@@ -20,5 +20,8 @@ export const URL_GET_CATEGORIES =
 export const URL_GET_TYPES =
   'http://localhost/turvato_api/api/Products/getAllTypes.php'
 
+export const URL_ADD_PRODUCT =
+  'http://localhost/turvato_api/api/Products/addProduct.php'
+
 export const URL_UPDATE_PRODUCT =
   'http://localhost/turvato_api/api/Products/updateProduct.php?pid='

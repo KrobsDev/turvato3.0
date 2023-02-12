@@ -55,6 +55,20 @@ export async function getAllTypes () {
 }
 
 // update product
+export async function addProduct (dataFromForm) {
+  const response = await axios
+    .post(urls.URL_ADD_PRODUCT, dataFromForm)
+    .then(response => {
+      return response
+    })
+    .catch(error => {
+      return 'error.response.data'
+    })
+
+  return response
+}
+
+// update product
 export async function updateProduct (id, dataFromForm) {
   const response = await axios
     .post(urls.URL_UPDATE_PRODUCT + id, dataFromForm)
