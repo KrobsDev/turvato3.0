@@ -33,7 +33,7 @@ function AdminSidebar () {
         <div className='h-full flex flex-col justify-between'>
           <div className='flex flex-col py-14 gap-8 admin_links w-fit'>
             <Link to={'/admin'}>Dashboard</Link>
-            <Link to={'/admin/products'}>Products</Link>
+            <Link to={'/admin/products'}>Edit Products</Link>
             <Link>Users</Link>
           </div>
           {/* logout */}

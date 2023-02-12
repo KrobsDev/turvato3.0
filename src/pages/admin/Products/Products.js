@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import AdminRight from '../../../components/AdminRight'
 import { Link } from 'react-router-dom'
-import { getProducts } from '../../../api/utils/Products'
-import { MdEdit, MdDelete } from 'react-icons/md'
+import {
+  getProducts,
+  getAllCategories,
+  getAllTypes
+} from '../../../api/utils/Products'
+import { MdEdit, MdDelete, MdClose } from 'react-icons/md'
 import Pagination from '../../../components/Pagination'
+import Modal from '../../../components/Modal'
 
 let PageSize = 8
 
@@ -14,11 +19,33 @@ function Products () {
   // pagination page state
   const [currentPage, setCurrentPage] = useState(1)
 
+  // state to check modal state
+  const [showAddProductModal, setShowAddProductModal] = useState(false)
+
+  //   states for all input fields
+  const [pname, setPname] = useState('')
+  const [description, setDescription] = useState('')
+  const [price, setPrice] = useState('')
+  const [keywords, setKeywords] = useState([])
+  const [category, setCategory] = useState('')
+  const [categories, setCategories] = useState([])
+  const [type, setType] = useState('')
+  const [types, setTypes] = useState([])
+
   //   let shouldShow = useRef(true)
   //   call fetch function in useEffect
   useEffect(() => {
     getProducts().then(function (response) {
       setProducts(response.data)
+    })
+
+    // get the list of all categories
+    getAllCategories().then(response => {
+      setCategories(response.data)
+    })
+    // get the list of all types
+    getAllTypes().then(response => {
+      setTypes(response.data)
     })
     // console.log(products)
   }, [])
@@ -34,6 +61,10 @@ function Products () {
     return 0
   })
 
+  const handleSubmit = e => {
+    e.preventDefault()
+  }
+
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize
     const lastPageIndex = firstPageIndex + PageSize
@@ -47,10 +78,19 @@ function Products () {
         <p>Products</p>
 
         {/* menu to choose which product operation to perform */}
-        <div className='flex mt-8'>
-          <Link className='border border-black flex items-center justify-center p-4'>
+        <div className='flex gap-4 mt-8'>
+          <button
+            onClick={() => setShowAddProductModal(true)}
+            className='border border-black flex items-center justify-center p-4'
+          >
             Add Products
-          </Link>
+          </button>
+          <button className='border border-black flex items-center justify-center p-4'>
+            Add Category
+          </button>
+          <button className='border border-black flex items-center justify-center p-4'>
+            Add Type
+          </button>
         </div>
 
         {/* table to show and manage the products */}
@@ -102,7 +142,107 @@ function Products () {
           onPageChange={page => setCurrentPage(page)}
         />
 
-        {/*  */}
+        {/* modal */}
+        {showAddProductModal ? (
+          <Modal title={'Add Product'} setShow={setShowAddProductModal}>
+            {/* add product form */}
+            <form method='post' onSubmit={handleSubmit}>
+              {/* product name */}
+              <div className='flex flex-col gap-4 w-96'>
+                <div className='formfield'>
+                  <input
+                    type='text'
+                    className='border border-black p-2'
+                    placeholder='Product Name'
+                    name='prod_name'
+                    value={pname}
+                    onChange={e => setPname(e.target.value)}
+                  />
+                </div>
+
+                {/* description */}
+                <textarea
+                  name='prod_desc'
+                  id=''
+                  cols='30'
+                  rows='5'
+                  className='resize-none px-2 border border-black'
+                  placeholder='Description'
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                ></textarea>
+
+                {/* category */}
+                <select
+                  name='prod_cat'
+                  id=''
+                  className='p-3'
+                  value={category}
+                  onChange={e => setCategory(e.target.value)}
+                >
+                  <option value='' disabled>
+                    Choose category
+                  </option>
+
+                  {/* available options */}
+                  {categories.map((category, index) => {
+                    return (
+                      <option key={index} value={category.cat_id}>
+                        {category.cat_name}
+                      </option>
+                    )
+                  })}
+                </select>
+
+                {/* price */}
+                <input
+                  type='text'
+                  name='prod_price'
+                  className='border border-black p-2'
+                  placeholder='Product Price'
+                  value={price}
+                  onChange={e => setPrice(e.target.value)}
+                />
+
+                {/* type */}
+                <select
+                  name='prod_type'
+                  id=''
+                  className='p-3'
+                  value={type}
+                  onChange={e => setType(e.target.value)}
+                >
+                  <option value='' disabled>
+                    Choose type
+                  </option>
+                  {types.map((p_type, index) => {
+                    return (
+                      <option key={index} value={p_type.type_id}>
+                        {p_type.type_name}
+                      </option>
+                    )
+                  })}
+                </select>
+
+                {/* keywords */}
+                <textarea
+                  id=''
+                  name='prod_keywords'
+                  cols='30'
+                  rows='5'
+                  className='resize-none px-2 border border-black'
+                  placeholder='Keywords'
+                  value={keywords}
+                  onChange={e => {
+                    setKeywords(e.target.value)
+                  }}
+                ></textarea>
+
+                <input className='p-4 bg-black text-white' type='submit' />
+              </div>
+            </form>
+          </Modal>
+        ) : null}
       </AdminRight>
     </div>
   )

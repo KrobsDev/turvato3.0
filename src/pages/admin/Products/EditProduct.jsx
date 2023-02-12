@@ -43,20 +43,10 @@ function EditProduct () {
       setDescription(response.data.product_desc)
       setSelectedCat(response.data.product_cat)
       setSelectedType(response.data.product_type)
-      //   setCat({
-      //     cat_id: response.data.product_cat,
-      //     cat_name: response.data.cat_name
-      //   }) //also need to display all available categories as options
       setPrice(response.data.product_price)
-      //   setType({
-      //     type_id: response.data.product_type,
-      //     type_name: response.data.type_name
-      //   })
       setKeywords(response.data.product_keywords)
     })
-  }, [])
-
-  //   console.log(categories)
+  }, [id])
 
   // run update function
   function handleSubmit (e) {
@@ -70,14 +60,15 @@ function EditProduct () {
 
     const formJSON = formToJSON(formData)
 
-    // console.log(formJSON)
-
     updateProduct(id, formJSON).then(response => {
       //   sweet alert
       Swal.fire({
         title: 'Product Info',
         text: response.data.message,
         icon: response.data.status === 1 ? 'success' : 'warning'
+      }).then(() => {
+        // return to product screen
+        navigate(-1)
       })
     })
   }
@@ -184,7 +175,6 @@ function EditProduct () {
             ></textarea>
 
             <input className='p-4 bg-black text-white' type='submit' />
-            {/* <button type='submit'>Submit</button> */}
           </div>
         </form>
       </AdminRight>
@@ -193,3 +183,6 @@ function EditProduct () {
 }
 
 export default EditProduct
+function Modal () {
+  return <div></div>
+}
