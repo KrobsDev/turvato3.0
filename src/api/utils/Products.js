@@ -45,7 +45,10 @@ export async function getAllCategories () {
   return response
 }
 
-// get all types
+/**
+ * get all available products
+ * @returns
+ */
 export async function getAllTypes () {
   const response = await axios.get(urls.URL_GET_TYPES).then(response => {
     return response
@@ -54,7 +57,12 @@ export async function getAllTypes () {
   return response
 }
 
-// update product
+/**
+ * Add a product
+ * @param {*} dataFromForm
+ * @returns
+ */
+
 export async function addProduct (dataFromForm) {
   const response = await axios
     .post(urls.URL_ADD_PRODUCT, dataFromForm)
@@ -68,10 +76,29 @@ export async function addProduct (dataFromForm) {
   return response
 }
 
-// update product
+/**
+ * Update product
+ * @param {*} id
+ * @param {*} dataFromForm
+ * @returns
+ */
+
 export async function updateProduct (id, dataFromForm) {
   const response = await axios
     .post(urls.URL_UPDATE_PRODUCT + id, dataFromForm)
+    .then(response => {
+      return response
+    })
+    .catch(error => {
+      return error.response.data
+    })
+
+  return response
+}
+
+export async function deleteProduct (id) {
+  const response = await axios
+    .get(urls.URL_DELETE_PRODUCT + id)
     .then(response => {
       return response
     })

@@ -5,7 +5,8 @@ import {
   getProducts,
   getAllCategories,
   getAllTypes,
-  addProduct
+  addProduct,
+  deleteProduct
 } from '../../../api/utils/Products'
 import { MdEdit, MdDelete, MdClose } from 'react-icons/md'
 import Pagination from '../../../components/Pagination'
@@ -51,18 +52,17 @@ function Products () {
       setTypes(response.data)
     })
     // console.log(products)
-  }, [])
+  }, [products])
 
-  // sort the table data
-  const sortedData = products.sort((a, b) => {
-    if (a.product_id < b.product_id) {
-      return -1
+  const validateForm = () => {
+    if (
+      (pname || description || category || price || type || keywords).length !==
+      0
+    ) {
+      return true
     }
-    if (a.product_id > b.product_id) {
-      return 1
-    }
-    return 0
-  })
+    return false
+  }
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -74,29 +74,72 @@ function Products () {
 
     const formJSON = formToJSON(formData)
 
-    // console.log(formJSON)
+    console.log(formJSON)
 
     // add product function
-    addProduct(formJSON)
-      .then(response => {
-        // sweet alert
-        Swal.fire({
-          icon: response.data.status === 1 ? 'success' : 'warning',
-          text: response.data.message
-        }).then(() => {
-          // clear form data
+    if (validateForm()) {
+      addProduct(formJSON)
+        .then(response => {
+          // sweet alert
+          Swal.fire({
+            icon: response.data.status === 1 ? 'success' : 'warning',
+            text: response.data.message
+          }).then(() => {
+            // clear form data
+            setShowAddProductModal(false)
+          })
         })
+        .catch(error => {
+          console.log('error')
+        })
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        text: 'Fields should not be left empty'
+      }).then(() => {
+        // clear form data
       })
-      .catch(error => {
-        console.log('error')
-      })
+    }
+  }
+
+  const handleDelete = pid => {
+    //
+    Swal.fire({
+      text: 'Are you sure you want to delete this product?',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it.'
+    }).then(result => {
+      if (result.isConfirmed) {
+        deleteProduct(pid).then(response => {
+          Swal.fire({
+            icon: response.data.status === 1 ? 'success' : 'warning',
+            text: response.data.message
+          })
+        })
+      } else {
+        Swal.close()
+      }
+    })
   }
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize
     const lastPageIndex = firstPageIndex + PageSize
+    // sort the table data
+    const sortedData = Array.isArray(products)
+      ? products.sort((a, b) => {
+          if (a.product_id < b.product_id) {
+            return -1
+          }
+          if (a.product_id > b.product_id) {
+            return 1
+          }
+          return 0
+        })
+      : []
+
     return sortedData.slice(firstPageIndex, lastPageIndex)
-  }, [currentPage, sortedData])
+  }, [currentPage, products])
 
   return (
     <div>
@@ -110,7 +153,7 @@ function Products () {
             onClick={() => setShowAddProductModal(true)}
             className='border border-black flex items-center justify-center p-4'
           >
-            Add Products
+            Add Product
           </button>
           <button className='border border-black flex items-center justify-center p-4'>
             Add Category
@@ -149,9 +192,9 @@ function Products () {
                       <Link to={`edit/${product.product_id}`}>
                         <MdEdit />
                       </Link>
-                      <Link>
-                        <MdDelete />
-                      </Link>
+                      <MdDelete
+                        onClick={() => handleDelete(product.product_id)}
+                      />
                     </td>
                   </tr>
                 )
@@ -161,13 +204,15 @@ function Products () {
         </div>
 
         {/* pagination buttons */}
-        <Pagination
-          className='pagination-bar'
-          currentPage={currentPage}
-          totalCount={products.length}
-          pageSize={PageSize}
-          onPageChange={page => setCurrentPage(page)}
-        />
+        {Array.isArray(products) ? (
+          <Pagination
+            className='pagination-bar'
+            currentPage={currentPage}
+            totalCount={products.length}
+            pageSize={PageSize}
+            onPageChange={page => setCurrentPage(page)}
+          />
+        ) : null}
 
         {/* modal */}
         {showAddProductModal ? (
@@ -221,16 +266,6 @@ function Products () {
                   })}
                 </select>
 
-                {/* price */}
-                <input
-                  type='text'
-                  name='prod_price'
-                  className='border border-black p-2'
-                  placeholder='Product Price'
-                  value={price}
-                  onChange={e => setPrice(e.target.value)}
-                />
-
                 {/* type */}
                 <select
                   name='prod_type'
@@ -250,6 +285,18 @@ function Products () {
                     )
                   })}
                 </select>
+
+                {/* price  --- conditionally render the price input field */}
+                {type === '1' ? (
+                  <input
+                    type='text'
+                    name='prod_price'
+                    className='border border-black p-2'
+                    placeholder='Product Price'
+                    value={price}
+                    onChange={e => setPrice(e.target.value)}
+                  />
+                ) : null}
 
                 {/* keywords */}
                 <textarea

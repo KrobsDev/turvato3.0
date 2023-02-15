@@ -25,3 +25,6 @@ export const URL_ADD_PRODUCT =
 
 export const URL_UPDATE_PRODUCT =
   'http://localhost/turvato_api/api/Products/updateProduct.php?pid='
+
+export const URL_DELETE_PRODUCT =
+  'http://localhost/turvato_api/api/Products/deleteProduct.php?pid='

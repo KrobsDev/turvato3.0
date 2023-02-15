@@ -28,15 +28,6 @@ function EditProduct () {
   const [selectedType, setSelectedType] = useState(0)
 
   useEffect(() => {
-    // get the list of all categories
-    getAllCategories().then(response => {
-      setCategories(response.data)
-    })
-    // get the list of all types
-    getAllTypes().then(response => {
-      setTypes(response.data)
-    })
-
     // get a product and set the values to the form inputs
     getOneProduct(id).then(response => {
       setPname(response.data.product_name)
@@ -46,7 +37,22 @@ function EditProduct () {
       setPrice(response.data.product_price)
       setKeywords(response.data.product_keywords)
     })
+    // get the list of all categories
+    getAllCategories().then(response => {
+      setCategories(response.data)
+    })
+    // get the list of all types
+    getAllTypes().then(response => {
+      setTypes(response.data)
+    })
   }, [id])
+  // console.log(selectedType)
+
+  // const handleChange = e => {
+  //   // set selected type
+  //   setSelectedType(e.target.value)
+  // }
+  // console.log(selectedType)
 
   // run update function
   function handleSubmit (e) {
@@ -130,16 +136,6 @@ function EditProduct () {
               })}
             </select>
 
-            {/* price */}
-            <input
-              type='text'
-              name='prod_price'
-              className='border border-black p-2'
-              placeholder='Product Price'
-              value={price}
-              onChange={e => setPrice(e.target.value)}
-            />
-
             {/* type */}
             <select
               name='prod_type'
@@ -159,6 +155,27 @@ function EditProduct () {
                 )
               })}
             </select>
+
+            {/* <input
+                type='text'
+                name='prod_price'
+                className='border border-black p-2'
+                placeholder='Product Price'
+                value={price}
+                onChange={e => setPrice(e.target.value)}
+              /> */}
+
+            {/* price */}
+            {selectedType == 1 && (
+              <input
+                type='text'
+                name='prod_price'
+                className='border border-black p-2'
+                placeholder='Product Price'
+                value={price}
+                onChange={e => setPrice(e.target.value)}
+              />
+            ) }
 
             {/* keywords */}
             <textarea
