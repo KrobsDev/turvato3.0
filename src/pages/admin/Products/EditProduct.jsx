@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import AdminRight from '../../../components/AdminRight'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import {
-  getOneProduct,
-  getAllCategories,
-  getAllTypes,
-  updateProduct
-} from '../../../api/utils/Products'
+import { getOneProduct, updateProduct } from '../../../api/utils/Products'
+import { getAllCategories } from '../../../api/utils/Categories'
+import { getAllTypes } from '../../../api/utils/Types'
 import { formToJSON } from 'axios'
 import Swal from 'sweetalert2'
 
@@ -156,15 +153,6 @@ function EditProduct () {
               })}
             </select>
 
-            {/* <input
-                type='text'
-                name='prod_price'
-                className='border border-black p-2'
-                placeholder='Product Price'
-                value={price}
-                onChange={e => setPrice(e.target.value)}
-              /> */}
-
             {/* price */}
             {selectedType == 1 && (
               <input
@@ -175,7 +163,7 @@ function EditProduct () {
                 value={price}
                 onChange={e => setPrice(e.target.value)}
               />
-            ) }
+            )}
 
             {/* keywords */}
             <textarea
@@ -200,6 +188,3 @@ function EditProduct () {
 }
 
 export default EditProduct
-function Modal () {
-  return <div></div>
-}

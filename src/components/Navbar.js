@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import AuthContext from '../context/AuthProvider'
 import { useCookies } from 'react-cookie'
 import { useLocation } from 'react-router-dom'
+import { AiOutlineMenu } from 'react-icons/ai'
 
 function Navbar () {
   // get the cookie from the browser and store it in the auth context
@@ -36,7 +37,7 @@ function Navbar () {
         <div className=' w-full h-full px-[10%] text-white mx-auto flex items-center justify-between relative'>
           <div className='logo text-xl font-bold'>Turvato</div>
           {/* nav links */}
-          <ul className='flex gap-12  text-sm font-light'>
+          <ul className='hidden md:flex gap-12  text-sm font-light'>
             <li className='links'>
               <Link to={`/`}>Home</Link>
             </li>
@@ -53,20 +54,25 @@ function Navbar () {
               <Link to={`/pricing`}>Pricing</Link>
             </li>
           </ul>
-          {auth.token ? (
-            <button
-              className='border border-white rounded-full text-white px-8 py-2 '
-              onClick={() => logout()}
-            >
-              Logout
-            </button>
-          ) : (
-            <Link to={`/signin`}>
-              <button className='bg-orange-bg rounded-full text-white px-8 py-2 '>
-                Sign In
+          <div className='hidden md:flex'>
+            {auth.token ? (
+              <button
+                className='border border-white rounded-full text-white px-8 py-2 '
+                onClick={() => logout()}
+              >
+                Logout
               </button>
-            </Link>
-          )}
+            ) : (
+              <Link to={`/signin`}>
+                <button className='bg-orange-bg rounded-full text-white px-8 py-2 '>
+                  Sign In
+                </button>
+              </Link>
+            )}
+          </div>
+
+          {/* show menu icon */}
+          <AiOutlineMenu className='md:hidden' />
         </div>
       </div>
     )

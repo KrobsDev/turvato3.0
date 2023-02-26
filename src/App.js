@@ -13,6 +13,9 @@ import ProductDetails from './pages/ProductDetails'
 import AdminLayout from './layouts/AdminLayout'
 import NavLayout from './layouts/NavLayout'
 import EditProduct from './pages/admin/Products/EditProduct'
+import Categories from './pages/admin/Products/Categories'
+import Types from './pages/admin/Products/Types'
+import Users from './pages/admin/Users'
 
 function App () {
   return (
@@ -26,6 +29,9 @@ function App () {
                 <Route index={true} element={<Products />} />
                 <Route path='edit/:id' element={<EditProduct />} />
               </Route>
+              <Route path='categories/' element={<Categories />} />
+              <Route path='types/' element={<Types />} />
+              <Route path='users/' element={<Users />} />
             </Route>
             <Route path='/' element={<NavLayout />}>
               <Route index={true} element={<Home />} />

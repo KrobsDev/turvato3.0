@@ -188,3 +188,10 @@ input{
 .prod_table td, th{
   padding: 15px 8px;
 }
+
+
+/* accordion css
+.accordion::after{
+  content: 'sad';
+  display: block;
+} */
