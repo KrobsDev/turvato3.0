@@ -10,7 +10,7 @@ function Table ({ children, theads }) {
               <th>ID</th>
               {theads &&
                 theads.map((element, index) => {
-                  return <th>{element}</th>
+                  return <th key={index}>{element}</th>
                 })}
               <th>Actions</th>
             </tr>

@@ -734,16 +734,16 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .mr-8 {
   margin-right: 2rem;
 }
 
 .mb-5 {
   margin-bottom: 1.25rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
 }
 
 .mb-4 {

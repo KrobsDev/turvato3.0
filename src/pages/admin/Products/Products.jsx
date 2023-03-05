@@ -63,7 +63,7 @@ function Products () {
       setTypes(response.data)
     })
     // console.log(products)
-  }, [products])
+  }, [])
 
   // validate add product form
   const validateAddProductForm = () => {
