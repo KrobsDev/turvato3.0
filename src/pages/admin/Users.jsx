@@ -15,7 +15,7 @@ function Users () {
     // get users data
     getUsers().then(response => {
       setUsers(response.data)
-      console.log(response.data)
+      // console.log(response.data)
     })
   }, [])
 

@@ -180,7 +180,6 @@ function Categories () {
 
         {/* table to show and manage the products */}
         <Table theads={['Category Name']}>
-          {' '}
           {currentTableData.map(cat => {
             return (
               <tr key={cat.cat_id}>
