@@ -6,7 +6,7 @@ function Table ({ children, theads }) {
       <div className='prod_table w-full mt-8 '>
         <table className='w-full' id='prod_table_content'>
           <thead>
-            <tr className='border border-black py-4 px-8 bg-dark-blue text-white text-left'>
+            <tr className='py-4 px-8 text-left'>
               <th>ID</th>
               {theads &&
                 theads.map((element, index) => {

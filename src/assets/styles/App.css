@@ -15,6 +15,7 @@ html, body{
   position: relative;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background-color: #FDFDFD;
 }
 
 
@@ -156,20 +157,44 @@ input{
   
 }
 
-.admin_links a{
+.admin_links a , .acc button, .lgout{
   /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 300;
 }
 
 .admin_right{
-  width: calc(100% - 15%);
   height: 100vh;
 }
 
-@media screen and (min-width: 1536px){
-  .admin_right{
-    width: calc(100% - 12%);
+.admin_right .header{
+  width: calc(100% - 15%);
+  box-shadow:  0 20px 20px rgba(0, 0, 0, 0.02);
+}
+
+.adminCard{
+  box-shadow:  0 20px 20px rgba(0, 0, 0, 0.03);
+}
+
+.adminCard .cardGradient{
+  background: linear-gradient(90deg, #FFFFFF 54.23%, rgba(255, 255, 255, 0) 100%);
+}
+
+@media screen and (min-width: 768px) {
+  /* .admin_links a{
+    display: flex;
+  } */
+}
+
+
+@media screen and (min-width: 1536px) {
+  .admin_right .header{
+    width: calc(100% - 10%);
   }
 }
+
 
 .prod_table{
   /* border: 1px solid red; */
@@ -179,14 +204,24 @@ input{
 
 .prod_table tr{
   /* border: 1px solid; */
+
+
 }
 
 .prod_table tr:nth-child(even){
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(255, 255, 255);
+  border-top: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
 }
 
 .prod_table td, th{
   padding: 15px 8px;
+  font-weight: 300;
+}
+
+.prod_table th{
+  background-color: hsla(195, 100%, 41%, 0.04);
+  font-size: medium;
 }
 
 
