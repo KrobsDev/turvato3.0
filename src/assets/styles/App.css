@@ -169,16 +169,16 @@ input{
   height: 100vh;
 }
 
-.admin_right .header{
+ .header{
   width: calc(100% - 15%);
   box-shadow:  0 20px 20px rgba(0, 0, 0, 0.02);
 }
 
-.adminCard{
+.c_shadow{
   box-shadow:  0 20px 20px rgba(0, 0, 0, 0.03);
 }
 
-.adminCard .cardGradient{
+.c_shadow .cardGradient{
   background: linear-gradient(90deg, #FFFFFF 54.23%, rgba(255, 255, 255, 0) 100%);
 }
 
@@ -190,7 +190,7 @@ input{
 
 
 @media screen and (min-width: 1536px) {
-  .admin_right .header{
+   .header{
     width: calc(100% - 10%);
   }
 }
@@ -198,32 +198,50 @@ input{
 
 .prod_table{
   /* border: 1px solid red; */
-  height: 500px;
+  /* height: 500px; */
   /* overflow: scroll; */
 }
 
 .prod_table tr{
   /* border: 1px solid; */
-
+  
 
 }
 
 .prod_table tr:nth-child(even){
   background-color: rgb(255, 255, 255);
-  border-top: 1px solid hsla(0, 0%, 0%, 0.1);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-top: 1px solid hsla(0, 0%, 0%, 0.04);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.04);
 }
 
 .prod_table td, th{
   padding: 15px 8px;
   font-weight: 300;
+  font-size: small;
 }
 
 .prod_table th{
   background-color: hsla(195, 100%, 41%, 0.04);
-  font-size: medium;
+  /* font-size: medium; */
 }
 
+.prod_table span{
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.prod_table td .pending{
+  color: hsla(15, 92%, 15%, 1);
+  background-color: hsla(60, 81%, 92%, 1);
+}
+.prod_table td .failed{
+  color: hsla(360, 99%, 20%, 1);
+  background-color: hsla(0, 64%, 95%, 1);
+}
+.prod_table td .completed{
+  color: hsla(137, 99%, 20%, 1);
+  background-color: hsla(137, 64%, 95%, 1);
+}
 
 /* accordion css
 .accordion::after{

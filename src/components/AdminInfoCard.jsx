@@ -5,7 +5,7 @@ import bg_pattern from '../assets/images/Double Bubble Outline Pattern.png'
 
 function AdminInfoCard ({ icon, title, number, pathToSettings, status }) {
   return (
-    <div className='adminCard w-full h-full relative flex items-center justify-center'>
+    <div className='c_shadow w-full h-full relative flex items-center justify-center'>
       <div className='absolute left-0 top-0 w-full h-full '>
         <img src={bg_pattern} alt='' className='w-full h-full object-cover' />
       </div>

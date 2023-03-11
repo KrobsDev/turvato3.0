@@ -51,7 +51,11 @@ function Users () {
               <tr key={user.user_id}>
                 <td>{user.user_id}</td>
                 <td>{user.user_image}</td>
-                <td>{user.user_fname + user.user_mname + user.user_lname}</td>
+                <td>
+                  {user.user_fname +
+                    (user.user_mname ? user.user_mname : ' ') +
+                    user.user_lname}
+                </td>
                 <td>{user.user_email}</td>
                 <td>{user.phone_number}</td>
                 {/* <td>{user.user_type}</td> */}

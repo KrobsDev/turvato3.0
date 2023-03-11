@@ -7,6 +7,7 @@ import { FaUsers } from 'react-icons/fa'
 import { BsBoxSeam, BsClipboardCheck } from 'react-icons/bs'
 import { VscRequestChanges } from 'react-icons/vsc'
 import { CiLogout } from 'react-icons/ci'
+import { BiMenu } from 'react-icons/bi'
 
 function AdminSidebar () {
   // get the cookies
@@ -17,6 +18,8 @@ function AdminSidebar () {
   const [isOpen, setIsOpen] = useState(false)
   // nav menu clicked state
   const [isClicked, setIsClicked] = useState(0)
+  // hamburger menu state
+  const [burgerOpen, setBurgerOpen] = useState(false)
 
   //   navigator
   const navigate = useNavigate()
@@ -83,7 +86,11 @@ function AdminSidebar () {
     </Link>
   ]
 
-  const handleClick = e => {}
+  // function to control sidemenu
+  const handleSideMenu = () => {
+    // setIsOpen(!isOpen)
+    console.log('burger' + burgerOpen)
+  }
 
   //   logout function
   return (
@@ -112,6 +119,34 @@ function AdminSidebar () {
           </button>
         </div>
       </aside>
+      {/* header */}
+      <div className='header text-black px-[4%] fixed py-4 top-0 right-0 mx-auto flex items-center justify-between'>
+        {/* burger */}
+        <div className='flex items-center gap-8'>
+          <BiMenu
+            onClick={() => handleSideMenu()}
+            size={30}
+            className='text-orange-bg cursor-pointer'
+          />
+
+          <div className=''>
+            <p className='font-light text-black'>Dashboard</p>
+            <p className='font-light text-xs'>3rd March 2023</p>
+          </div>
+        </div>
+
+        {/* profile */}
+        <div className='flex items-center gap-2'>
+          <div className='w-[45px] h-[45px] border border-black rounded-full flex items-center justify-center'></div>
+          <div className=''>
+            <div className='flex items-center gap-4'>
+              <p className='font-light'>Akwasi Asante-Krobea</p>
+              {/* <RiArrowDropDownLine /> */}
+            </div>
+            <p className='text-xs font-light'>Admin</p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
